@@ -1,0 +1,319 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: poppins;
+}
+html {
+	background-color: #f8f5fb;
+}
+.container {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+.navbar-brand {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+.nav-right {
+	float: right;
+}
+.nav {
+	background-color: white;
+	box-shadow: 10px 10px 5px black;
+}
+
+.nav ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+.nav ul li a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding: 20px;
+}
+.nav ul li:hover {
+	background-color: #f8f5fb;
+}
+.nav ul ul {
+	display: none;
+}
+.nav ul .submenu:hover ul {
+	display: block;
+	position: absolute;
+	background-color: white;
+}
+.nav ul .submenu:hover ul li {
+	display: block;
+}
+.signup {
+	background-color: #00a96c;
+	color: white !important;
+}
+.signup:hover {
+	background-color: white;
+	color: black !important;
+}
+
+.hero-image {
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Assets/jumbotron.jpg');
+}
+.hero-text {
+	color: white;
+	text-align: left;
+	position: absolute;
+	top: 30%;
+}
+
+.banner-footer {
+	display: flex;
+	margin-top: 20px;
+	position: relative;
+	width: 300px;
+}
+.banner-footer input {
+	padding: 10px !important;
+	width: 300px !important;
+}
+.banner-footer a {
+	text-decoration: none;
+	background-color: #00a96c;
+	color: white;
+	padding: 7px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	border-radius: 2px;
+}
+
+.badge:after {
+	content: attr(value);
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	border-radius: 50%;
+	padding: 0 5px;
+	position: relative;
+	left: -8px;
+	top: -10px;
+	opacity: 0.9;
+}
+
+/* about */
+#about {
+	background-color: white;
+	padding: 0px 50px 50px 50px;
+}
+
+#about h2 {
+	border-bottom: inset grey 5px;
+	color: grey;
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	margin-bottom: 50px;
+}
+#about img {
+	border-radius: 10px;
+	transition: 0.5s ease-in-out;
+}
+#about img:hover {
+	width: 350px;
+}
+.row {
+	display: flex;
+}
+
+.col {
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* books */
+#book {
+	padding: 0px 50px 50px 50px;
+}
+
+#book .row {
+	align-items: center;
+}
+#book h2 {
+	border-bottom: inset grey 5px;
+	color: grey;
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	margin-bottom: 50px;
+}
+
+#book .card {
+	text-align: center;
+	background-color: white;
+	padding: 10px;
+	border-radius: 5px;
+	width: 150px;
+}
+#book .card h4 {
+	height: 20px;
+	overflow: hidden;
+}
+.btn {
+	padding: 5px;
+	background-color: #00a96c;
+	text-decoration: none;
+	color: white;
+	border-radius: 10px;
+}
+.card-footer {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.show-more {
+	padding: 0 !important;
+	width: auto !important;
+}
+.show-more a {
+	text-decoration: none;
+	background-color: gray;
+	color: white;
+	padding: 50px;
+	border-radius: 10px;
+}
+
+#testimoni {
+	background-color: white;
+	padding: 0px 50px 50px 50px;
+}
+
+#testimoni h2 {
+	border-bottom: inset grey 5px;
+	color: grey;
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	margin-bottom: 50px;
+}
+
+.stars {
+	color: #6ab04c;
+	margin-bottom: 20px;
+}
+
+#footer {
+	padding: 0px 50px 50px 50px;
+}
+
+#footer h2 {
+	border-bottom: inset grey 5px;
+	color: grey;
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	margin-bottom: 50px;
+}
+
+.testimonial {
+	width: 200px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+	padding: 10px;
+}
+
+.kirim_pesan {
+	display: block;
+}
+input,
+label {
+	display: block;
+}
+
+.form-grup {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#footer input[type='text'] {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	width: 200px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+#footer input[type='button'] {
+	padding: 10px;
+	border: none;
+	background-color: #00a96c;
+	color: white;
+	border-radius: 2px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+#footer textarea {
+	border: none;
+	border-radius: 2px;
+	padding: 5px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.contact-desc {
+	list-style-type: none;
+}
+.contact-desc li {
+	padding: 5px;
+}
+
+#footer .col {
+	width: 30%;
+	float: right;
+}
+
+.login .box{
+	background-color: white;
+	padding: 40px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+	width: fit-content;
+	border-radius: 15px;
+	position: absolute;
+	top: 30%;
+	right: 50%;
+	left: 40%;
+}
+
+.login .box h2{
+	text-align: center;
+}
+
+.login input[type="text"],input[type="password"],input[type="number"]{
+	border:none;
+	padding: 10px;
+	width: 250px;
+	margin-top: 5px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+}
+.login input[type="text"]:focus,input[type="password"]:focus{
+	outline: #00a96c solid 1px;
+	border-radius: 15px;
+}
+.login .form-group{
+	margin-top: 20px;
+}
+
+.login input[type="submit"]{
+	padding: 10px;
+	width: 270px;
+	border: none;
+	background-color: #00a96c; 
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+}
