@@ -41,11 +41,24 @@ html {
 }
 .nav ul .submenu:hover ul {
 	display: block;
+	z-index: 1;
 	position: absolute;
 	background-color: white;
 }
 .nav ul .submenu:hover ul li {
 	display: block;
+}
+.badge:after {
+	content: attr(value);
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	border-radius: 50%;
+	padding: 0 5px;
+	position: relative;
+	left: -8px;
+	top: -10px;
+	opacity: 0.9;
 }
 .signup {
 	background-color: #00a96c;
