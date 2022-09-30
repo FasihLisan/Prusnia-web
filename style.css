@@ -20,7 +20,7 @@ html {
 }
 .nav {
 	background-color: white;
-	box-shadow: 10px 10px 5px black;
+	box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav ul li {
@@ -276,7 +276,7 @@ label {
 	float: right;
 }
 
-.login .box{
+.login .box {
 	background-color: white;
 	padding: 40px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
@@ -288,32 +288,120 @@ label {
 	left: 40%;
 }
 
-.login .box h2{
+.login .box h2 {
 	text-align: center;
 }
 
-.login input[type="text"],input[type="password"],input[type="number"]{
-	border:none;
+.login input[type='text'],
+input[type='password'],
+input[type='number'] {
+	border: none;
 	padding: 10px;
 	width: 250px;
 	margin-top: 5px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-
 }
-.login input[type="text"]:focus,input[type="password"]:focus{
+.login input[type='text']:focus,
+input[type='password']:focus {
 	outline: #00a96c solid 1px;
 	border-radius: 15px;
 }
-.login .form-group{
+.login .form-group {
 	margin-top: 20px;
 }
 
-.login input[type="submit"]{
+.login input[type='submit'] {
 	padding: 10px;
 	width: 270px;
 	border: none;
-	background-color: #00a96c; 
+	background-color: #00a96c;
 	color: white;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-
 }
+
+/* about css */
+
+.row1 {
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+}
+.col1 {
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.about1 .row {
+	display: block;
+}
+.galeri .flex {
+	text-align: center;
+}
+
+.galeri .gallery {
+	display: inline-block;
+	position: relative;
+}
+div.gallery {
+	margin: 30px;
+	border: 1px solid #ccc;
+	width: 250px;
+}
+div.gallery:hover {
+	border: 1px solid #777;
+}
+
+div.gallery img {
+	width: 100%;
+	height: auto;
+}
+
+div.desc {
+	padding: 15px;
+	text-align: center;
+}
+
+input[type='text'],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+input[type='submit'] {
+	background-color: #04aa6d;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type='submit']:hover {
+	background-color: #45a049;
+}
+
+.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+
+.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+
+/* about css */
