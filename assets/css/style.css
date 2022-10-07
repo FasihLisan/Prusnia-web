@@ -95,6 +95,7 @@ nav {
 nav .container {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	text-align: center;
 	align-items: center;
 }
@@ -115,7 +116,7 @@ nav ul .cart-btn :hover {
 .navbar-brand {
 	font-weight: bold;
 }
-.badge::after {
+nav .badge::after {
 	content: attr(value);
 	background-color: red;
 	color: #fff;
@@ -142,8 +143,9 @@ nav ul .cart-btn :hover {
 
 /* ----------------Image Banner---------------- */
 .image-banner {
-	height: 720px;
+	height: fit-content;
 	width: 100%;
+	padding: 14rem 0;
 	top: 0;
 	position: relative;
 	background: linear-gradient(rgba(255, 246, 209, 0.75) 100%, rgba(255, 246, 209, 0.75) 100%), url('../images/banner.png');
@@ -153,10 +155,19 @@ nav ul .cart-btn :hover {
 }
 
 .image-banner .row {
-	display: grid;
-	grid-template-columns: 40% 60%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5rem;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
+}
+.image-banner .img-banner {
+	width: 400px;
+}
+.image-banner .text-banner {
+	width: 500px;
+	font-size: 1.2rem;
 }
 
 .button-search {
@@ -179,38 +190,29 @@ nav ul .cart-btn :hover {
 	cursor: pointer;
 }
 
-.image-banner .text-image {
-	padding-top: 4rem;
-}
-
-.image-banner .img-banner {
-	text-align: center;
-	margin-left: 10rem;
-	margin-top: -4rem;
-}
-.image-banner .text-banner {
-	font-size: 1.2rem;
-	margin-top: 7rem;
-}
 .book-mockup {
 	height: auto;
 	width: 300px;
-	margin-top: 40%;
 }
 /* ----------------Image Banner---------------- */
 
 /* ----------------About---------------- */
 
 .about .container {
-	display: grid;
-	grid-template-columns: 60% 40%;
-	justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 5rem;
 	align-items: center;
 	margin-top: 5rem;
 	margin-bottom: 5rem;
 }
+.about .img-about {
+	width: 400px;
+}
 .img-about img {
-	width: 60%;
+	width: 100%;
 	border-radius: 1rem;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
@@ -234,8 +236,10 @@ nav ul .cart-btn :hover {
 	background-size: cover;
 }
 .books .container {
-	display: grid;
-	grid-template-columns: auto auto auto auto auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-top: 6rem;
 	margin-bottom: 6rem;
 }
@@ -316,8 +320,9 @@ nav ul .cart-btn :hover {
 /* ----------------Testimoni---------------- */
 
 .testimoni .container {
-	display: grid;
-	grid-template-columns: auto auto auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 2rem;
 	align-items: center;
 	justify-content: space-around;
@@ -381,8 +386,10 @@ nav ul .cart-btn :hover {
 }
 
 .contact .container {
-	display: grid;
-	grid-template-columns: 50% 50%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 5rem;
 	margin-top: 5rem;
 	margin-bottom: 5rem;
@@ -391,9 +398,11 @@ nav ul .cart-btn :hover {
 	position: relative;
 	width: 300px;
 	height: 300px;
-	margin-left: 10rem;
 	border-radius: 15px;
 	overflow: hidden;
+}
+.contact .contact-left {
+	width: 50%;
 }
 .contact .contact-left ul li {
 	line-height: 2rem;
@@ -454,6 +463,7 @@ input[type='password']:focus {
 	color: #fff;
 	width: 70%;
 	cursor: pointer;
+	border-radius: 0.5rem;
 }
 .signin .fa-close {
 	position: absolute;
@@ -529,6 +539,7 @@ input[type='password']:focus {
 	color: #fff;
 	width: 70%;
 	cursor: pointer;
+	border-radius: 0.5rem;
 }
 .signup .fa-close {
 	position: absolute;
@@ -547,3 +558,91 @@ input[type='password']:focus {
 .button-signup a:hover {
 	color: var(--first-color2);
 }
+/* ----------------signin---------------- */
+
+/* ----------------About page---------------- */
+.about-page {
+	padding-top: 7rem;
+	background: linear-gradient(rgba(255, 246, 209, 0.75) 100%, rgba(255, 246, 209, 0.75) 100%), url('../images/banner.png');
+}
+.about-page .container {
+	display: flex;
+	flex-direction: row;
+	gap: 5rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+.about-page .img-about {
+	width: 400px;
+}
+
+.desc-about {
+	width: 50%;
+}
+.about-page .img-about img {
+	width: 100%;
+	border-radius: 1rem;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.about-page .img-about img:hover {
+	transition: 0.5s ease-in-out;
+	box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.5);
+}
+.about-page .desc-about p {
+	font-size: 1rem;
+}
+.about-pages .desc-about a {
+	color: var(--first-color);
+}
+/* ----------------About page---------------- */
+/* ----------------About page---------------- */
+.galeri {
+	padding: 5rem 5rem;
+}
+.galeri .container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5rem;
+	justify-content: center;
+	margin-top: 5rem;
+	margin-bottom: 10rem;
+}
+.galeri .card-img-galeri {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	display: flex;
+	border-radius: 0.1rem;
+	overflow: hidden;
+}
+.galeri .card-img-galeri img {
+	width: 100%;
+	min-height: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+.galeri .card-img-galeri:hover .card-img-text {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	transition: 0.3s linear;
+}
+
+.galeri .card-img-galeri .card-img-text p {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
+}
+/* ----------------About page---------------- */
