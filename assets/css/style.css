@@ -612,6 +612,7 @@ input[type='password']:focus {
 	margin-bottom: 10rem;
 }
 .galeri .card-img-galeri {
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 	width: 250px;
 	height: 250px;
 	position: relative;
@@ -646,3 +647,68 @@ input[type='password']:focus {
 	cursor: pointer;
 }
 /* ----------------About page---------------- */
+/* ----------------Book page---------------- */
+.book-page {
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+}
+.book-page .sidebar-book {
+	width: 30%;
+	background-color: rgb(235, 237, 247);
+	width: fit-content;
+	min-height: 100vh;
+	padding-top: 10rem;
+}
+.book-page .sidebar-book ul li a {
+	display: block;
+	width: 250px;
+	padding: 5px 2rem;
+}
+.book-page .sidebar-book ul li a:hover {
+	color: var(--first-color2);
+}
+
+.book-page .content-book {
+	padding-top: 5rem;
+	width: 100%;
+}
+
+.content-book .search {
+	position: relative;
+	margin: 0;
+	display: block;
+	top: 0;
+	padding: 5rem 0;
+}
+.content-book .search input {
+	width: 100%;
+	display: block;
+	position: absolute;
+	padding: 1rem;
+	background-color: rgb(235, 237, 247);
+	border-radius: 2rem;
+}
+.content-book .search .fa-search {
+	position: absolute;
+	right: 0;
+	padding: 1rem;
+	cursor: pointer;
+}
+.category-book-page ul li {
+	display: inline-block;
+}
+.category-book-page ul li a {
+	padding: 0.5rem;
+	background-color: var(--first-color);
+	color: #fff;
+	border-radius: 0.5rem;
+}
+.book-page .book-content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 4rem 0;
+}
+
+/* ----------------Book page---------------- */
