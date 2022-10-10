@@ -19,3 +19,7 @@ function signup() {
 	$('.signin').hide();
 	$('.signup').show();
 }
+
+$('.navbar-brand').click(function () {
+	$('.sidebar-section').toggleClass('hide', 5000);
+});
