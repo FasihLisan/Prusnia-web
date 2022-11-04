@@ -439,9 +439,9 @@ nav .badge::after {
 }
 
 .signin input[type='text'],
-input[type='password'] {
+.signin input[type='password'] {
 	padding: 1rem;
-	width: 250px;
+	width: 100%;
 	background-color: rgba(0, 0, 0, 0.05);
 	border-radius: 0.5rem;
 }

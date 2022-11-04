@@ -1,4 +1,4 @@
-<?php include_once './layout/header.php' ?>
+<?php require './layout/header.php'; ?>
 
 <section class="cart">
     <div class="container cart-page">

@@ -1,3 +1,7 @@
+<?php
+include './koneksi/usersModel.php';
+$user =  new usersModel;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +50,29 @@
                 <div class="button-signin">
                     <input type="submit" value="Sign In" name="Submit" />
                     <a href="#" onclick="signup()">Sign Up</a>
+                </div>
+                <div class="user data">
+                    <table class="table" border="1" style="margin-top: 20px;">
+                        <thead>
+                            <tr>
+                                <th scope=" col">id</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($user->getUsers() as $u) : ?>
+                                <tr scope="row">
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $u['username']; ?></td>
+                                    <td><?= $u['email']; ?></td>
+                                    <td><?= $u['nama_level']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </form>
         </div>

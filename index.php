@@ -1,4 +1,4 @@
-<?php include_once './layout/header.php' ?>
+<?php require './layout/header.php'; ?>
 
 <div class="image-banner">
 	<div class="container">
@@ -129,4 +129,4 @@
 
 
 
-<?php include_once './layout/footer.php' ?>
+<?php require './layout/footer.php' ?>

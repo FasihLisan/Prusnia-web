@@ -1,4 +1,4 @@
-<?php include_once './layout/header.php' ?>
+<?php require './layout/header.php'; ?>
 
 <section class="book-page" id="Books">
 	<div class="sidebar-book">
