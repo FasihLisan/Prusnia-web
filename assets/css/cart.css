@@ -47,19 +47,9 @@ html {
 .nav ul .submenu:hover ul li {
 	display: block;
 }
-.signup {
-	background-color: #00a96c;
-	color: white !important;
-}
-.signup:hover {
-	background-color: white;
-	color: black !important;
-}
-
 .cart-page h2 {
 	margin: 30px 0px;
 }
-
 .wrapper {
 	max-width: 1000px;
 	margin: 0 auto;
