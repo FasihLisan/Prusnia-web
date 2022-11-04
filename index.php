@@ -27,7 +27,6 @@
 			<img src="./assets/images/galeri1.jpeg" alt="" />
 		</div>
 		<div class="desc-about">
-			<p>Museum perusnia adalah sebuah tempat wisata uang kuno yang berlokasi di bangkalan, yang di dirikan 2 januari 2021 oleh seorang pemuda yang berumur 21 tahun. Tidak hanya memamerkan koleksi uang kunonya, dia juga menulis beberapa buku sejarah tentang uang kuno seluruh dunia. Tujuan Salman Alrosyid menulis sebuah buku mengenai sejarah uang koin Indonesia agar masyarakat dan pegiat kolektor uang mudah memahami sejarah penggunaan mata uang koin Indonesia, selain menunjang kegiatan numismatic, buku ini menjadi pengembagan pengetahuan mengenai sejarah penggunaan uang koin di Indonesia dahulu.</p>
 			<a href="">More info <i class="fa-solid fa-arrow-right"></i></a>
 		</div>
 	</div>
