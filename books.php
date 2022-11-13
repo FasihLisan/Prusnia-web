@@ -1,4 +1,4 @@
-<?php require './layout/header.php'; ?>
+<?php require './layout/headerIndex.php'; ?>
 
 <section class="book-page" id="Books">
 	<div class="sidebar-book">
@@ -305,4 +305,4 @@
 </section>
 
 
-<?php include_once './layout/footer.php' ?>
+<?php include_once './layout/footerIndex.php' ?>

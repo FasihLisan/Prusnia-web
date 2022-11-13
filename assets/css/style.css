@@ -116,6 +116,7 @@ nav ul .cart-btn :hover {
 .navbar-brand {
 	font-weight: bold;
 }
+
 nav .badge::after {
 	content: attr(value);
 	background-color: red;
@@ -414,11 +415,20 @@ nav .badge::after {
 .signin {
 	position: fixed;
 	display: none;
-	z-index: 1;
-	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+	transform: translateX(100%);
+	top: 20%;
+}
+.darkbg {
+	background-color: #000;
 	width: 100%;
 	height: 100%;
+	position: fixed;
 	top: 0;
+	left: 0;
+	z-index: 1;
+	display: none;
+	opacity: 0.8;
 }
 .box-signin {
 	/* display: none; */
@@ -426,7 +436,6 @@ nav .badge::after {
 	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
-	transform: translateY(10rem);
 	background-color: #fff;
 	border-radius: 0.5rem;
 	width: fit-content;
@@ -478,6 +487,7 @@ input[type='password']:focus {
 }
 .button-signin a {
 	color: var(--first-color);
+	margin-right: 20px;
 }
 .button-signin a:hover {
 	color: var(--first-color2);
@@ -486,13 +496,11 @@ input[type='password']:focus {
 /* ----------------signup---------------- */
 .signup {
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 	background-color: rgba(0, 0, 0, 0.7);
-	width: 100%;
-	height: 100%;
-	top: 0;
 	display: none;
-	overflow-y: scroll;
+	transform: translateX(170%);
+	top: 5%;
 }
 .box-signup {
 	/* display: none; */
@@ -500,13 +508,11 @@ input[type='password']:focus {
 	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
-	transform: translateY(2rem);
 	background-color: #fff;
 	border-radius: 0.5rem;
 	width: fit-content;
 	height: fit-content;
 	padding: 3rem;
-	margin-bottom: 10rem;
 }
 
 .signup .signup-title {

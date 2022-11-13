@@ -1,4 +1,4 @@
-<?php require './layout/header.php'; ?>
+<?php require './layout/headerIndex.php'; ?>
 
 <section class="about-page" id="about">
 	<h2 class="title">About</h2>
@@ -55,4 +55,4 @@
 	</div>
 </section>
 
-<?php include_once './layout/footer.php' ?>
+<?php include_once './layout/footerIndex.php' ?>

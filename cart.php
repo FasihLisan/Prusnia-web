@@ -1,4 +1,4 @@
-<?php require './layout/header.php'; ?>
+<?php require './layout/headerIndex.php'; ?>
 
 <section class="cart">
     <div class="container cart-page">
@@ -59,4 +59,4 @@
 </section>
 
 
-<?php include_once './layout/footer.php' ?>
+<?php include_once './layout/footerIndex.php' ?>

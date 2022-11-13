@@ -1,6 +1,6 @@
 <?php
-include './koneksi/usersModel.php';
-$user =  new usersModel;
+require './controller/userController.php';
+$user =  new userController;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,8 @@ $user =  new usersModel;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/cart.css" />
-    <script src="https://kit.fontawesome.com/581c89d9b7.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="./assets/fontawesome/fontawesome.js"></script>
+    <script src="./assets/js/jquery.min.js"></script>
     <title>Perusnia Books</title>
     <link rel="icon" href="" type="image/icon type" />
 </head>
@@ -34,7 +34,7 @@ $user =  new usersModel;
     </nav>
 
     <!-- login -->
-    <section class="signin">
+    <div class="signin">
         <div class="box-signin">
             <i class="fa-solid fa-close" onclick="tutup()"></i>
             <h3 class="signin-title">Sign In</h3>
@@ -76,8 +76,9 @@ $user =  new usersModel;
                 </div>
             </form>
         </div>
-    </section>
-    <section class="signup">
+    </div>
+    <div class="darkbg"></div>
+    <div class="signup">
         <div class="box-signup">
             <i class="fa-solid fa-close" onclick="tutup()"></i>
             <h3 class="signup-title">Sign Up</h3>
@@ -112,7 +113,7 @@ $user =  new usersModel;
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 
     <!-- whatassppp buble -->
     <span class="whatsapp-buble"><a href="https://api.whatsapp.com/send?phone=6285336076077&text=halo%20saya%20fasih" target="_blank" class="fa-brands fa-4x fa-square-whatsapp"></a></span>

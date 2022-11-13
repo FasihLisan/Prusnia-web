@@ -1,4 +1,4 @@
-<?php require './layout/header.php'; ?>
+<?php require './layout/headerIndex.php'; ?>
 
 <div class="image-banner">
 	<div class="container">
@@ -129,4 +129,4 @@
 
 
 
-<?php require './layout/footer.php' ?>
+<?php require './layout/footerIndex.php' ?>
