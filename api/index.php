@@ -105,7 +105,7 @@
             <div class="col">
               http://localhost/perusnia/api/files.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
-              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">(file.extesion}</span>
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">(file}</span>
             </div>
             <div class="col">
               Select file
