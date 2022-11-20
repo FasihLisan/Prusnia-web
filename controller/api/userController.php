@@ -226,4 +226,29 @@ class userController
 
     return mysqli_affected_rows($conn);
   }
+
+  function getFiles($filename, $path)
+  {
+    $ekstensiFile = explode('.', $filename);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+
+    $ekstensiImageValid = ['jpg', 'jpeg', 'png'];
+    $ekstensiPdfValid = ['pdf'];
+
+
+
+    if (in_array($ekstensiFile, $ekstensiImageValid)) {
+      header('Content-Type: image/png');
+      header('Content-Length: ' . filesize('../assets/images/' . $filename));
+
+      @readfile($path . $filename);
+    } elseif (in_array($ekstensiFile, $ekstensiPdfValid)) {
+      header("Content-type: application/$ekstensiFile");
+      header("Content-Disposition: inline; filename=$filename");
+
+      @readfile($path . $filename);
+    } else {
+      echo "Ekstensi file tidak cocok";
+    }
+  }
 }

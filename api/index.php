@@ -56,22 +56,27 @@
               <a href="#" class="btn btn-light text-warning">POST</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/insertUser.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+              http://localhost/perusnia/api/insertUser.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
-              Insert data, <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">x-www-form-urlencoded</span>
+              Insert data,
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">form-data</span>
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">x-www-form-urlencoded</span>
             </div>
           </div>
           <div class="row p-3 bg-info bg-opacity-10 border border-info rounded mb-3">
             <div class="col-md-1">
-              <a href="#" class="btn btn-light text-primary">PUT</a>
+              <a href="#" class="btn btn-light text-primary">POST</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/updateUser.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+              http://localhost/perusnia/api/updateUser.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{id}</span>
             </div>
             <div class="col">
               Update data,
-              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">x-www-form-urlencoded</span>,
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">form-data</span>,
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">id_users</span>
             </div>
           </div>
@@ -91,7 +96,24 @@
         </div>
 
         <!-- book api -->
-
+        <div class="api mb-5">
+          <h4>Get files</h4>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              http://localhost/perusnia/api/files.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">(file.extesion}</span>
+            </div>
+            <div class="col">
+              Select file
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">.pdf</span>
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">png/jpg/jpeg</span>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>

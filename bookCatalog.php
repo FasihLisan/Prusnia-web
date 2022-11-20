@@ -52,7 +52,7 @@ require './layout/headerBookCenter.php';
             <td>IDR <?= number_format($b['harga'], 2) ?></td>
             <td><?= $b['publication_date'] <= date("Y-m-d") ? '<span class="text-white bg-success p-1 rounded-5">Published</span>' : '<span class="text-white bg-secondary p-1 rounded-5">Pending</span>' ?></td>
             <td>
-              <a href="viewPDF.php?file=<?= $b["file_buku"]; ?>" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
+              <a href="viewPDF.php?file=<?= $b["file_buku"]; ?>" onclick="alert('Jika otomatis download, segera disable downlaod manager anda!!')" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
               <a href="updateBook.php?id_book=<?= $b["id_book"]; ?>" class="btn btn-warning "><i class="fa-solid fa-edit"></i></a>
               <button onclick="confirmationHapusData('deleteBook.php?id_book=<?= $b['id_book'] ?>')" class="btn btn-danger sweet-delete"><i class=" fa-solid fa-trash"></i></button>
             </td>
