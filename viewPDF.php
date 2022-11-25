@@ -22,7 +22,12 @@ $filename = $_GET['file'];
 </head>
 
 <body>
-  <iframe type="application/x-google-chrome-pdf" src="http://localhost/perusnia/api/files.php?api_key=fasih123&file=<?= $filename; ?>" style="width:100%; min-height: 100vh;" frameborder="0"></iframe>
+
+  <object data="http://localhost/perusnia/api/files.php?api_key=fasih123&file=<?= $filename; ?>" type="application/pdf" width="100%" height="100%">
+    <p>Your web browser doesn't have a PDF plugin.
+      Instead you can <a href="filename.pdf">click here to
+        download the PDF file.</a></p>
+  </object>
 </body>
 
 </html>

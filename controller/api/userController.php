@@ -58,7 +58,6 @@ class userController
     $err = [];
 
 
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (!isset($_POST['username'])) {
         array_push($err, "username is required");
@@ -292,6 +291,27 @@ class userController
       @readfile($path . $filename);
     } else {
       echo "Ekstensi file tidak cocok";
+    }
+  }
+  function cek_data($email, $pass)
+  {
+    global $conn;
+
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($result);
+
+    if ($data == null) {
+      return false;
+    }
+
+    $userPass = $data["password"];
+    $password = $pass;
+
+    if (password_verify($password, $userPass)) {
+      return $data;
+    } else {
+      return false;
     }
   }
 }
