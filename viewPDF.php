@@ -1,4 +1,5 @@
 <?php
+require 'root/base_url.php';
 
 $filename = $_GET['file'];
 ?>
@@ -23,7 +24,7 @@ $filename = $_GET['file'];
 
 <body>
 
-  <object data="http://localhost/perusnia/api/files.php?api_key=fasih123&file=<?= $filename; ?>" type="application/pdf" width="100%" height="100%">
+  <object data="<?= BASE_URL ?>api/files.php?api_key=fasih123&file=<?= $filename; ?>" type="application/pdf" width="100%" height="100%">
     <p>Your web browser doesn't have a PDF plugin.
       Instead you can <a href="filename.pdf">click here to
         download the PDF file.</a></p>

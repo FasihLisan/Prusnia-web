@@ -51,10 +51,12 @@ class userController
 
     return json_encode($response);
   }
+
+
   function insert()
   {
     global $conn;
-    $username = $email = $password = $email = $password = $nama_depan = $nama_belakang = $jenis_kelamin = $negara = $kota = "";
+    $username = $email = $password = $email = $nama_depan = $nama_belakang = $jenis_kelamin = $negara = $kota = "";
     $err = [];
 
 
@@ -104,7 +106,8 @@ class userController
     }
 
     //input required check
-    if (!$username || !$email || !$password || !$email || !$password || !$nama_depan || !$nama_belakang || !$jenis_kelamin || !$negara || !$kota) {
+    if (!$username || !$email || !$password || !$email || !$nama_depan || !$nama_belakang || !$jenis_kelamin || !$negara || !$kota) {
+
       return false;
     }
 

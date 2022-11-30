@@ -13,7 +13,7 @@ if (isset($_POST["email"]) && isset($_POST['password'])) {
       "error" => false,
       "message" => "success",
       "user" => [
-        "id" => $user["id_users"],
+        "id_users" => $user["id_users"],
         "username" => $user["username"],
         "email" => $user["email"],
         "password" => $user["password"]

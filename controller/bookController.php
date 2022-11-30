@@ -9,6 +9,10 @@ class bookController
     if (!isset($_SESSION)) {
       session_start();
     }
+    if ($_SESSION["userdata"]["is-login"] != true) {
+      $_SESSION["failed"] = "Login required";
+      header("Location: signin.php");
+    }
   }
   function index()
   {

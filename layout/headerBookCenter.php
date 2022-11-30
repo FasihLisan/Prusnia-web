@@ -1,8 +1,10 @@
 <?php
 require './controller/bookController.php';
 require './controller/dashboardController.php';
+require './controller/userController.php';
 $dashboard =  new dashboardController;
 $bookCatalog =  new bookController;
+$user = new userController;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +46,12 @@ $bookCatalog =  new bookController;
             <ul class="navbar-nav ms-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="./assets/images/p1.png" class="rounded-circle img-nav" width="40" alt="" srcset="" />
+                  <img src="<?= $user->getUserById($_SESSION['userdata']['id_users'])['foto'] ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light bg-white mt-2">
+                  <li><a class="dropdown-item" href="index.php">Home</a></li>
                   <li><a class="dropdown-item" href="#">Setting</a></li>
-                  <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
+                  <li><a class="dropdown-item text-danger" href="logout.php">Sign Out</a></li>
                 </ul>
               </li>
             </ul>
@@ -60,9 +63,9 @@ $bookCatalog =  new bookController;
     <div class="row section-admin-panel">
       <div class="col-md-2 sidebar-section bg-white border-end">
         <div class="sidebar-profile">
-          <img src="./assets/images/p1.png" class="rounded-circle" width="50 alt=" />
+          <img src="<?= $user->getUserById($_SESSION['userdata']['id_users'])['foto'] ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle" width="50" alt="" />
           <div class="profile-status">
-            <strong>Fasih</strong>
+            <strong><?= $user->getUserById($_SESSION['userdata']['id_users'])['username'] ?></strong>
             <span><i class="fa-solid fa-circle fa-2xs text-success"></i> Online</span>
           </div>
         </div>

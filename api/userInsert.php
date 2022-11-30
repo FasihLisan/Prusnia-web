@@ -6,11 +6,11 @@ $user = new userController();
 if ($user->insert() > 0) {
   echo json_encode([
     "status" => 201,
-    "message" => "Created!!"
+    "message" => "Sign Up Success, Please Sign In!!"
   ]);
 } else {
   echo json_encode([
     "status" => 400,
-    "message" => "Failed to add data"
+    "message" => "Sign Up failed!!"
   ]);
 }

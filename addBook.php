@@ -70,7 +70,7 @@ if (isset($_SESSION['failed'])) {
     <div class="col-md-5">
       <div class="mb-3">
         <label for="publisher_name" class="form-label">Publisher name</label>
-        <input type="text" name="publisher_name" class="form-control text-muted" id="publisher_name" value="id_user login dan query simpan ke id_user?" placeholder="" readonly>
+        <input type="text" name="publisher_name" class="form-control text-muted" id="publisher_name" value="<?= $user->getUserById($_SESSION['userdata']['id_users'])['nama_depan'] . " " . $user->getUserById($_SESSION['userdata']['id_users'])['nama_belakang'] ?>" placeholder="" readonly>
       </div>
     </div>
     <div class="col-md-5">
