@@ -5,10 +5,12 @@ $(function () {
 	});
 });
 
+//datable
 $(document).ready(function () {
 	$('#table').DataTable();
 });
 
+//navabr
 $('.navbar-brand').click(function () {
 	$('.sidebar-section').toggleClass('hide', 5000);
 });
@@ -65,6 +67,7 @@ function onBlur(e) {
 	e.target.value = value || value === 0 ? localStringToNumber(value).toLocaleString(undefined, options) : '';
 }
 
+//sweet alert
 function confirmationHapusData(url) {
 	Swal.fire({
 		title: 'Anda Yakin Untuk Menghapus Buku ini?',

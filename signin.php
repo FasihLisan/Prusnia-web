@@ -1,16 +1,11 @@
-<?php require './layout/headerIndex.php'; ?>
-
-<?php
+<?php require './layout/headerIndex.php';
 require './controller/AuthController.php';
 $user = new AuthController();
 
 if (isset($_POST["submit"])) {
-
   $user->signin();
 }
 ?>
-
-
 <div class="signin">
   <div class="image">
     <img src="assets/images/banner.png" alt="">

@@ -95,9 +95,9 @@
           </div>
         </div>
 
-        <!-- book api -->
+        <!-- files api -->
         <div class="api mb-5">
-          <h4>Get files</h4>
+          <h4>Files API</h4>
           <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
             <div class="col-md-1">
               <a href="#" class="btn btn-light text-success">GET</a>
@@ -114,6 +114,50 @@
             </div>
           </div>
         </div>
+
+        <!-- book api -->
+        <div class="api mb-5">
+          <h4>Book API</h4>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              http://localhost/perusnia/api/book.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+            </div>
+            <div class="col">
+              Select all
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              http://localhost/perusnia/api/book.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id}</span>
+            </div>
+            <div class="col">
+              Select spesific data
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              http://localhost/perusnia/api/book_top_rate.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+            </div>
+            <div class="col">
+              Get top rated book
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
     </div>

@@ -40,8 +40,6 @@ class AuthController
 
     $cek = cek_data($email, $password);
 
-
-
     if ($cek != false) {
 
       $_SESSION['userdata'] = [
