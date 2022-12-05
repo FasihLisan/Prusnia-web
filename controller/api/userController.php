@@ -1,5 +1,6 @@
 <?php
 require_once('../koneksi/koneksi.php');
+require_once('../root/base_url.php');
 
 class userController
 {

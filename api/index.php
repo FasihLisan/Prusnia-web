@@ -1,3 +1,6 @@
+<?php
+require('../root/base_url.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +35,7 @@
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/user.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+              <?= BASE_URL ?>api/user.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
               Select all
@@ -43,7 +46,7 @@
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/user.php
+              <?= BASE_URL ?>api/user.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id}</span>
             </div>
@@ -56,7 +59,7 @@
               <a href="#" class="btn btn-light text-warning">POST</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/insertUser.php
+              <?= BASE_URL ?>api/insertUser.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
@@ -70,7 +73,7 @@
               <a href="#" class="btn btn-light text-primary">POST</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/updateUser.php
+              <?= BASE_URL ?>api/updateUser.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{id}</span>
             </div>
@@ -85,7 +88,7 @@
               <a href="#" class="btn btn-light text-danger">DELETE</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/deleteUser.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+              <?= BASE_URL ?>api/deleteUser.php<span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
               Delete data
@@ -103,7 +106,7 @@
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/files.php
+              <?= BASE_URL ?>api/files.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">(file}</span>
             </div>
@@ -123,7 +126,7 @@
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/book.php
+              <?= BASE_URL ?>api/book.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
@@ -135,7 +138,7 @@
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/book.php
+              <?= BASE_URL ?>api/book.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id}</span>
             </div>
@@ -143,16 +146,96 @@
               Select spesific data
             </div>
           </div>
+        </div>
+
+        <!-- Rating book api -->
+        <div class="api mb-5">
+          <h4>Rating Book API</h4>
           <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
             <div class="col-md-1">
               <a href="#" class="btn btn-light text-success">GET</a>
             </div>
             <div class="col">
-              http://localhost/perusnia/api/book_top_rate.php
+              <?= BASE_URL ?>api/getTopRateBook.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
               Get top rated book
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/rateBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Get user spesific rated book
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating book api -->
+        <div class="api mb-5">
+          <h4>Favorite Book API</h4>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/favoriteBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{id_users}</span>
+
+            </div>
+            <div class="col">
+              Get user all favorite book
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/favoriteBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Get user spesific favorite book
+            </div>
+          </div>
+          <div class="row p-3 bg-warning bg-opacity-10 border border-warning rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-warning">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/insertFavoriteBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Inset Favorite Book
+            </div>
+          </div>
+          <div class="row p-3 bg-danger bg-opacity-10 border border-danger rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-danger">DELETE</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/deleteFavoriteBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Delete favorite book
             </div>
           </div>
         </div>

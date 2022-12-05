@@ -6,7 +6,7 @@ $user = new userController();
 
 if (isset($_GET['file'])) {
   $filename = $_GET['file'];
-  $path = "http://localhost/perusnia/assets/images/";
+  $path = BASE_URL . "assets/images/";
 
   $user->getFiles($filename, $path);
 }

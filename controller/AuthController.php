@@ -1,6 +1,6 @@
 <?php
 require_once('./koneksi/koneksi.php');
-require('./root/base_url.php');
+require_once('./root/base_url.php');
 class AuthController
 {
   function __construct()

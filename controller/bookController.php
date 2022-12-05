@@ -1,5 +1,6 @@
 <?php
 require './koneksi/koneksi.php';
+require_once('./root/base_url.php');
 
 class bookController
 {
