@@ -1,11 +1,10 @@
 <?php
-require_once('../controller/api/bookController.php');
-$book = new bookController();
+require_once('../controller/api/favoriteController.php');
+$favorite = new favoriteController();
 
-parse_str(file_get_contents('php://input'), $_DELETE);
 
-if (isset($_DELETE['id_users']) && isset($_DELETE['id_book'])) {
-  if ($book->deleteFavorite($_DELETE['id_users'], $_DELETE['id_book']) > 0) {
+if (isset($_POST['id_users']) && isset($_POST['id_book'])) {
+  if ($favorite->deleteFavorite($_POST['id_users'], $_POST['id_book']) > 0) {
     $response = [
       "status" => 200,
       "message" => "Deleted!"

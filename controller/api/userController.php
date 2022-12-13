@@ -291,6 +291,7 @@ class userController
     } elseif (in_array($ekstensiFile, $ekstensiPdfValid)) {
       header("Content-type: application/$ekstensiFile");
       header("Content-Disposition: inline; filename=$filename");
+      header('Content-Length: ' . filesize('../assets/images/' . $filename));
 
       @readfile($path . $filename);
     } else {

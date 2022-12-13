@@ -59,11 +59,25 @@ require('../root/base_url.php');
               <a href="#" class="btn btn-light text-warning">POST</a>
             </div>
             <div class="col">
+              <?= BASE_URL ?>api/Login.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+            </div>
+            <div class="col">
+              Sign in
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">form-data</span>
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">x-www-form-urlencoded</span>
+            </div>
+          </div>
+          <div class="row p-3 bg-warning bg-opacity-10 border border-warning rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-warning">POST</a>
+            </div>
+            <div class="col">
               <?= BASE_URL ?>api/insertUser.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
             </div>
             <div class="col">
-              Insert data,
+              Insert data / Signup,
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">form-data</span>
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">x-www-form-urlencoded</span>
             </div>
@@ -170,6 +184,19 @@ require('../root/base_url.php');
             <div class="col">
               <?= BASE_URL ?>api/rateBook.php
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Get All ratebook in book
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/rateBook.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
               <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
             </div>
@@ -177,9 +204,50 @@ require('../root/base_url.php');
               Get user spesific rated book
             </div>
           </div>
+          <div class="row p-3 bg-warning bg-opacity-10 border border-warning rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-warning">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/insertFeedback.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+            </div>
+            <div class="col">
+              Insert feedback
+            </div>
+          </div>
+          <div class="row p-3 bg-info bg-opacity-10 border border-info rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-info">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/updateFeedback.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Update feedback
+            </div>
+          </div>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/deleteFeedback.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_book}</span>
+            </div>
+            <div class="col">
+              Delete feedback
+            </div>
+          </div>
+
         </div>
 
-        <!-- Rating book api -->
+        <!-- Favorite book api -->
         <div class="api mb-5">
           <h4>Favorite Book API</h4>
           <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
@@ -224,9 +292,9 @@ require('../root/base_url.php');
               Inset Favorite Book
             </div>
           </div>
-          <div class="row p-3 bg-danger bg-opacity-10 border border-danger rounded mb-3">
+          <div class="row p-3 bg-warning bg-opacity-10 border border-warning rounded mb-3">
             <div class="col-md-1">
-              <a href="#" class="btn btn-light text-danger">DELETE</a>
+              <a href="#" class="btn btn-light text-warning">POST </a>
             </div>
             <div class="col">
               <?= BASE_URL ?>api/deleteFavoriteBook.php
@@ -240,7 +308,66 @@ require('../root/base_url.php');
           </div>
         </div>
 
+        <!-- Note api -->
+        <div class="api mb-5">
+          <h4>Note API</h4>
+          <div class="row p-3 bg-success bg-opacity-10 border border-success rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-success">GET</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/notes.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_users}</span>
 
+            </div>
+            <div class="col">
+              Get spesification note
+            </div>
+          </div>
+          <div class="row p-3 bg-warning bg-opacity-10 border border-warning rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-warning">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/insertNote.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>
+            </div>
+            <div class="col">
+              Insert Note
+            </div>
+          </div>
+          <div class="row p-3 bg-info bg-opacity-10 border border-info rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-info">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/updateNote.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_notes}</span>
+
+            </div>
+            <div class="col">
+              Update Note
+            </div>
+          </div>
+          <div class="row p-3 bg-danger bg-opacity-10 border border-danger rounded mb-3">
+            <div class="col-md-1">
+              <a href="#" class="btn btn-light text-danger">POST</a>
+            </div>
+            <div class="col">
+              <?= BASE_URL ?>api/deleteNote.php
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">?{api_key}</span>&
+              <span class="text-danger bg-danger bg-opacity-10 px-2 rounded-pill">{id_notes}</span>
+
+            </div>
+            <div class="col">
+              Delete Note
+            </div>
+          </div>
+
+
+        </div>
 
       </div>
     </div>

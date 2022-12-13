@@ -1,9 +1,11 @@
 <?php
-require_once('../controller/api/bookController.php');
-$book = new bookController();
+require_once('../controller/api/feedbackController.php');
+$rate = new feedbackController();
 
-if ($_GET["id_users"] && $_GET['id_book']) {
-  $book->getSpesificRateBook($_GET["id_users"], $_GET['id_book']);
+if (isset($_GET["id_users"]) && isset($_GET['id_book'])) {
+  $rate->getSpesificRateBook($_GET["id_users"], $_GET['id_book']);
+} elseif (isset($_GET['id_book'])) {
+  $rate->getAllRatebook($_GET['id_book']);
 } else {
   $response = [
     "status" => 400,
