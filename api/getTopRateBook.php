@@ -1,5 +1,5 @@
 <?php
-require_once('../controller/api/bookController.php');
-$book = new bookController();
+require_once('../controller/api/feedbackController.php');
+$rate = new feedbackController();
 
-echo $book->getTopRateBook();
+echo $rate->getTopRateBook();

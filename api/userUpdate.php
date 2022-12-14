@@ -10,6 +10,6 @@ if ($user->update($_GET['id_users']) > 0) {
 } else {
   echo json_encode([
     "status" => 400,
-    "message" => "Failed to Update data"
+    "message" => "Failed to Update data | Image < 2Mb"
   ]);
 }

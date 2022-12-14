@@ -1,9 +1,9 @@
 <?php
-require_once('../controller/api/bookController.php');
-$book = new bookController();
+require_once('../controller/api/favoriteController.php');
+$favorite = new favoriteController();
 
 if (isset($_POST['id_users']) && isset($_POST['id_book'])) {
-  if ($book->insertFavorite($_POST['id_users'], $_POST['id_book']) > 0) {
+  if ($favorite->insertFavorite($_POST['id_users'], $_POST['id_book']) > 0) {
     $response = [
       "status" => 200,
       "message" => "Saved"
