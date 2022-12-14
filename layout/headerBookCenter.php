@@ -46,7 +46,7 @@ $user = new userController;
             <ul class="navbar-nav ms-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="<?= $user->getUserById($_SESSION['userdata']['id_users'])['foto'] ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
+                  <img src="<?= isset($user->getUserById($_SESSION['userdata']['id_users'])['foto']) ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light bg-white mt-2">
                   <li><a class="dropdown-item" href="index.php">Home</a></li>
@@ -63,7 +63,7 @@ $user = new userController;
     <div class="row section-admin-panel">
       <div class="col-md-2 sidebar-section bg-white border-end">
         <div class="sidebar-profile">
-          <img src="<?= $user->getUserById($_SESSION['userdata']['id_users'])['foto'] ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle" width="50" alt="" />
+          <img src="<?= isset($user->getUserById($_SESSION['userdata']['id_users'])['foto']) ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle" width="50" alt="" />
           <div class="profile-status">
             <strong><?= $user->getUserById($_SESSION['userdata']['id_users'])['username'] ?></strong>
             <span><i class="fa-solid fa-circle fa-2xs text-success"></i> Online</span>
@@ -84,7 +84,7 @@ $user = new userController;
             <a href="category.php" class="nav-link <?= $active ==  "category.php" ? 'active' : '' ?>"><i class="fa-solid fa-filter"></i> Category</a>
           </li>
           <li class="nav-item">
-            <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting</a>
+            <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting Account</a>
           </li>
         </ul>
       </div>
