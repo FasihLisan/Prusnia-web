@@ -5,7 +5,7 @@
 		<ul>
 			<li><a href="books.php">Books</a></li>
 			<li><a href="mybooks.php">My Book</a></li>
-			<li><a href="myfavorite.php">Favorite</a></li>
+			<li><a href="favorite.php">Favorite</a></li>
 		</ul>
 	</div>
 	<div class="content-book">
