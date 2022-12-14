@@ -3,9 +3,9 @@
 <section class="book-page" id="Books">
 	<div class="sidebar-book">
 		<ul>
-			<li><a href="#">Books</a></li>
-			<li><a href="#">My Book</a></li>
-			<li><a href="#">Favorite</a></li>
+			<li><a href="books.php">Books</a></li>
+			<li><a href="mybooks.php">My Book</a></li>
+			<li><a href="myfavorite.php">Favorite</a></li>
 		</ul>
 	</div>
 	<div class="content-book">
