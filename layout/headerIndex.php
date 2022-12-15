@@ -33,7 +33,7 @@ $user =  new userController;
                 <?php if (isset($_SESSION['userdata']['is-login'])) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="<?= $user->getUserById($_SESSION['userdata']['id_users'])['foto'] ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
+                            <img src="<?= isset($user->getUserById($_SESSION['userdata']['id_users'])['foto']) ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light bg-white mt-2">
                             <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
