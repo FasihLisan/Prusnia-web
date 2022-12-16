@@ -49,4 +49,21 @@ class bookController
 
     return json_encode($response);
   }
+
+  public function serach($keyword)
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users WHERE book.judul LIKE '%$keyword%' GROUP BY book.id_book ORDER BY book.id_book ASC";
+
+    $res = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($res)) {
+      $rows[] = $row;
+    }
+    $response = [
+      "status" => 200,
+      "message" => "Success",
+      "data" => $rows
+    ];
+    return json_encode($response);
+  }
 }

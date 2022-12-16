@@ -123,6 +123,7 @@ class bookController
     }
 
     list($coverFilename, $bookFilename) = upload();
+
     if (!$coverFilename && !$bookFilename) {
       if (!$coverFilename) {
         $_SESSION["failed"]["book_cover"]['required'] = "book_cover is required";
@@ -133,6 +134,8 @@ class bookController
       return false;
     }
 
+    $pdf = file_get_contents("./assets/images/" . $bookFilename);
+    $halaman = preg_match_all("/\/Page\W/", $pdf, $dummy);
 
     $data = [
       "judul" => $judul,
@@ -143,15 +146,15 @@ class bookController
       "author" => $author,
       "book_cover" =>   $coverFilename,
       "book_file" => $bookFilename,
+      "halaman" => $halaman,
       "harga" => $harga,
       "pembayaran" => $pembayaran,
     ];
 
-    // var_dump($data);
-    // die;
 
 
-    $query = "INSERT INTO book (cover,kode_buku,judul,description,file_buku,author,harga,publication_date,id_users,payment_id) VALUES ('$coverFilename','$kode_buku','$judul','$deskripsi','$bookFilename','$author','$harga','$publication_date','$id_users','$pembayaran')";
+
+    $query = "INSERT INTO book (cover,kode_buku,judul,description,file_buku,halaman,author,harga,publication_date,id_users,payment_id) VALUES ('$coverFilename','$kode_buku','$judul','$deskripsi','$bookFilename','$halaman','$author','$harga','$publication_date','$id_users','$pembayaran')";
 
     mysqli_query($conn, $query);
 
@@ -284,7 +287,11 @@ class bookController
 
         $bookFilename = $filename["bookFile"];
 
-        $query = "UPDATE book SET file_buku='$bookFilename' where id_book='$id_book'";
+
+        $pdf = file_get_contents("./assets/images/" . $bookFilename);
+        $halaman = preg_match_all("/\/Page\W/", $pdf, $dummy);
+
+        $query = "UPDATE book SET file_buku='$bookFilename',halaman='$halaman' where id_book='$id_book'";
 
         mysqli_query($conn, $query);
       }
@@ -299,6 +306,8 @@ class bookController
         "harga" => $harga,
         "pembayaran" => $pembayaran,
       ];
+
+
 
       $query = "UPDATE book SET kode_buku='$kode_buku',judul='$judul',description='$deskripsi',author='$author',harga='$harga',publication_date='$publication_date',id_users='$id_users',payment_id='$pembayaran' where id_book='$id_book'";
       mysqli_query($conn, $query);
