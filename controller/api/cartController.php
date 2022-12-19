@@ -78,4 +78,23 @@ class cartController
       echo json_encode($response);
     }
   }
+
+  public function deleteAllCartUsers($id_users)
+  {
+    global $conn;
+    $query = "DELETE FROM cart_item where id_users=$id_users";
+    if (mysqli_query($conn, $query)) {
+      $response = [
+        "status" => 200,
+        "message" => "delete success",
+      ];
+      echo json_encode($response);
+    } else {
+      $response = [
+        "status" => 400,
+        "message" => "delete Failed",
+      ];
+      echo json_encode($response);
+    }
+  }
 }
