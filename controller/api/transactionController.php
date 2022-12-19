@@ -21,7 +21,7 @@ class transactionController
     $id_users = $_POST['id_users'];
     $id_book = $_POST['id_book'];
 
-    $query = "insert into detail_transaction (transaction_id,id_users,id_book) VALUES ($transaction_id,$id_users,$id_book)";
+    $query = "insert into detail_transaction (transaction_id,id_users,id_book) VALUES ('$transaction_id','$id_users','$id_book')";
 
     if (mysqli_query($conn, $query)) {
       $response = [
@@ -32,7 +32,7 @@ class transactionController
     } else {
       $response = [
         "status" => 400,
-        "message" => "Failed",
+        "message" => "Failed" . mysqli_error($conn),
       ];
       echo json_encode($response);
     }
