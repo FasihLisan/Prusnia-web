@@ -1,5 +1,8 @@
 <?php
 require './controller/userController.php';
+require_once './controller/ContactController.php';
+$contact = new ContactController();
+$data2 = $contact->index();
 $user =  new userController;
 ?>
 <!DOCTYPE html>
@@ -50,5 +53,5 @@ $user =  new userController;
 
 
     <!-- whatassppp buble -->
-    <span class="whatsapp-buble"><a href="https://api.whatsapp.com/send?phone=6285336076077&text=halo%20saya%20fasih" target="_blank" class="fa-brands fa-4x fa-square-whatsapp"></a></span>
+    <span class="whatsapp-buble"><a href="https://api.whatsapp.com/send?phone=<?=$data2['telepon']?>&text=Halo%20saya%20ingin%20bertanya%20mengenai%20perusnia" target="_blank" class="fa-brands fa-4x fa-square-whatsapp"></a></span>
     <!-- whatassppp buble -->

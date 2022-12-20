@@ -1,7 +1,10 @@
 <?php require './layout/headerIndex.php'; 
 require_once './controller/AboutController.php';
+require_once './controller/ContactController.php';
 $about = new AboutController();
 $data = $about->index();
+$contact = new ContactController();
+$data2 = $contact->index();
 ?>
 
 <div class="image-banner">

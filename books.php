@@ -1,4 +1,8 @@
-<?php require './layout/headerIndex.php'; ?>
+<?php require './layout/headerIndex.php'; 
+require_once './controller/ContactController.php';
+$contact = new ContactController();
+$data2 = $contact->index();
+?>
 
 <section class="book-page" id="Books">
 	<div class="sidebar-book">
@@ -305,4 +309,5 @@
 </section>
 
 
-<?php include_once './layout/footerIndex.php' ?>
+<?php include_once './layout/footerIndex.php'; 
+?>
