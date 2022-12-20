@@ -239,11 +239,13 @@ class userController
       if (!move_uploaded_file($foto['tmp_name'], '../assets/images/' . $filename)) {
         return false;
       }
+      $query = "UPDATE users SET foto='$filename'WHERE id_users=$id_user";
+      mysqli_query($conn, $query);
     }
 
 
 
-    $query = "UPDATE users SET foto='$filename',username='$username',email='$email',password='$password',nama_depan='$nama_depan',nama_belakang='$nama_belakang',tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',no_telp='$no_telp',alamat='$alamat',negara='$negara',kota='$kota' WHERE id_users=$id_user";
+    $query = "UPDATE users SET username='$username',email='$email',password='$password',nama_depan='$nama_depan',nama_belakang='$nama_belakang',tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',no_telp='$no_telp',alamat='$alamat',negara='$negara',kota='$kota' WHERE id_users=$id_user";
     mysqli_query($conn, $query);
 
 

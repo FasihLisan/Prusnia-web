@@ -11,6 +11,6 @@ if ($user->insert() > 0) {
 } else {
   echo json_encode([
     "status" => 400,
-    "message" => "Sign Up failed!!"
+    "message" => "Username harus terdapat huruf dan angaka"
   ]);
 }
