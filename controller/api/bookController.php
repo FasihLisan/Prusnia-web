@@ -66,4 +66,28 @@ class bookController
     ];
     return json_encode($response);
   }
+  public function check_mybook($id_users, $id_book)
+  {
+    global $conn;
+    $query = "SELECT * FROM mybook WHERE mybook.id_book=$id_book AND mybook.id_users=$id_users";
+    if (!mysqli_query($conn, $query)) {
+      return false;
+    }
+    return mysqli_affected_rows($conn);
+  }
+  public function getMyBookUsers($id_users)
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book JOIN users ON book.id_users=users.id_users JOIN mybook ON mybook.id_book=book.id_book WHERE mybook.id_users=$id_users GROUP BY mybook.id_book ORDER BY mybook.id_book ASC";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+    }
+    $response = [
+      "status" => 200,
+      "message" => "success",
+      "data" => $rows
+    ];
+    return json_encode($response);
+  }
 }

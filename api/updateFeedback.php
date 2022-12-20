@@ -1,7 +1,7 @@
 <?php
 require_once('../controller/api/feedbackController.php');
 $feedback = new feedbackController();
-
+global $conn;
 if (isset($_GET["id_users"]) && isset($_GET["id_book"])) {
   if ($feedback->update($_GET["id_users"], $_GET["id_book"]) > 0) {
     $response = [
@@ -12,7 +12,7 @@ if (isset($_GET["id_users"]) && isset($_GET["id_book"])) {
   } else {
     $response = [
       "status" => 500,
-      "message" => "Failed to update"
+      "message" => "Failed to update" . mysqli_error($conn)
     ];
     echo json_encode($response);
   }

@@ -116,8 +116,6 @@ class feedbackController
 
     $rate_score = validation($_POST['rate_score']);
     $comment = validation($_POST['comment']);
-    $id_book = validation($_POST['id_book']);
-    $id_users = validation($_POST['id_users']);
 
     if (!$rate_score || !$id_book || !$id_users) {
       return false;
@@ -138,5 +136,13 @@ class feedbackController
       return false;
     }
     return mysqli_affected_rows($conn);
+  }
+  public function cek_feedback($id_users, $id_book)
+  {
+    global $conn;
+    $query = "SELECT * FROM rate_book where id_users=$id_users AND id_book=$id_book";
+    $result = mysqli_query($conn, $query);
+
+    return mysqli_num_rows($result);
   }
 }

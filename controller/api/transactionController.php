@@ -217,7 +217,7 @@ class transactionController
     $query = "UPDATE transaction SET transaction_time='$transaction_time',transaction_status='$transaction_status',transaction_id='$transaction_id',status_message='$status_message',status_code='$status_code',signature_key='$signature_key',settlement_time='$settlement_time',payment_type='$payment_type',order_id='$order_id',merchant_id='$merchant_id',gross_amount='$gross_amount',fraud_status='$fraud_status',currency='$currency',biller_code='$biller_code',bill_key='$bill_key',approval_code='$approval_code' WHERE transaction_id='$transaction_id'";
 
     if ($transaction_status == "settlement") {
-      $query1 = "INSERT INTO mybook(id_book,id_users) SELECT detail_transaction.transaction_id, detail_transaction.id_users, detail_transaction.id_book FROM detail_transaction WHERE transaction_id='$transaction_id'";
+      $query1 = "INSERT INTO mybook(id_book,id_users) SELECT detail_transaction.id_book, detail_transaction.id_users FROM detail_transaction WHERE detail_transaction.transaction_id='$transaction_id'";
       mysqli_query($conn, $query1);
     }
 
