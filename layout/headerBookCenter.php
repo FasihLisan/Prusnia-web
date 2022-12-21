@@ -83,6 +83,17 @@ $user = new userController;
           <li class="nav-item">
             <a href="category.php" class="nav-link <?= $active ==  "category.php" ? 'active' : '' ?>"><i class="fa-solid fa-filter"></i> Category</a>
           </li>
+          <div class="dropdown">
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-gears"></i>
+            About Website
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">About</a></li>
+              <li><a class="dropdown-item" href="galeri.php">Galeri</a></li>
+              <li><a class="dropdown-item" href="contact_input.php">Contact</a></li>
+            </ul>
           <li class="nav-item">
             <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting Account</a>
           </li>
