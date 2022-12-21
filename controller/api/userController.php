@@ -123,7 +123,7 @@ class userController
 
     //username validation
     //"/^\w{5,}$/"
-    if (!preg_match('^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$', $username)) { // \w equals "[0-9A-Za-z_]"
+    if (!preg_match('/^\w{5,}$/', $username)) { // \w equals "[0-9A-Za-z_]"
       return false;
     }
 
