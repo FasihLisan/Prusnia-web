@@ -74,7 +74,7 @@ $user = new userController;
           <?php if ($_SESSION["userdata"]['id_level'] == 1) : ?>
 
             <li class="nav-item">
-              <a href="dasbhaord_admin.php" class="nav-link <?= $active ==  "dasbhaord_admin.php" ? 'active' : '' ?>"><i class="fa-solid fa-chart-line"></i> Dashboard Admin</a>
+              <a href="dashboard_admin.php" class="nav-link <?= $active ==  "dashboard_admin.php" ? 'active' : '' ?>"><i class="fa-solid fa-chart-line"></i> Dashboard Admin</a>
             </li>
             <li class="nav-item">
               <a href="<?= $bookCatalog->index()['view']; ?>" class="nav-link <?= $active ==  "bookCatalog.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book Catalog</a>
