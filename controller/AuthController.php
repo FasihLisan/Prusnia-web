@@ -48,7 +48,11 @@ class AuthController
         "id_level" => $cek["id_level"]
 
       ];
-      header("Location: dashboard.php");
+      if ($cek['id_level'] == 1) {
+        header("Location: dashboard_admin.php");
+      } else {
+        header("Location: book.php");
+      }
     } else {
       $_SESSION['failed'] = "Email atau password salah!";
     }

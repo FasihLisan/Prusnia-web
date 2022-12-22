@@ -1,5 +1,5 @@
 <?php
-$active = "paymentCenter.php";
+$active = "my_order.php";
 require './layout/headerBookCenter.php';
 ?>
 
@@ -13,7 +13,6 @@ require './layout/headerBookCenter.php';
   unset($_SESSION['success']);
 } ?>
 
-<a href="" id="addBook" class="btn btn-success "><i class="fa-solid fa-plus"></i> Add Book</a>
 <div class="table-responsive py-3">
   <table class="table table-hover align-middle " id="table">
     <thead class="bg-default shadow-sm">
@@ -40,9 +39,7 @@ require './layout/headerBookCenter.php';
         <td>IDR </td>
         <td></td>
         <td>
-          <a href="viewPDF.php?file=" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
-          <a href="updateBook.php?id_book=" class="btn btn-warning "><i class="fa-solid fa-edit"></i></a>
-          <button class="btn btn-danger sweet-delete"><i class=" fa-solid fa-trash"></i></button>
+          <a href="#" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
         </td>
       </tr>
     </tbody>

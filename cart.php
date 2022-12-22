@@ -9,8 +9,10 @@
                 <div class="box">
                     <img src="https://bukuajar.com/wp-content/uploads/2020/07/ba-2-1.jpg">
                     <div class="content">
-                        <h3>Perkembangan Uang Dalam Sejarah Dunia</h3>
-                        <p class="unit">Price: RP.45.000: <input name="" value=""></p>
+                        <h4>Perkembangan Uang Dalam Sejarah Dunia</h4>
+                        <p>Author: Salman Alrosyid</p>
+                        <p>Rate: 4.0/5</p>
+                        <h4 class="unit">Price: RP.45.000</h4>
                         <p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
                     </div>
                 </div>
