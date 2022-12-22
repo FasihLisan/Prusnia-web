@@ -44,7 +44,8 @@ class AuthController
 
       $_SESSION['userdata'] = [
         "is-login" => true,
-        "id_users" => $cek['id_users']
+        "id_users" => $cek['id_users'],
+        "id_level" => $cek["id_level"]
 
       ];
       header("Location: dashboard.php");

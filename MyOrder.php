@@ -3,7 +3,7 @@ $active = "paymentCenter.php";
 require './layout/headerBookCenter.php';
 ?>
 
-<h4 class="my-4">Payment Center</h4>
+<h4 class="my-4">My order history</h4>
 
 <?php if (isset($_SESSION['success'])) {
   echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
