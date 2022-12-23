@@ -66,12 +66,10 @@ class ContactController
     if (isset($data["tutup"])) {
       $tutup = $data["tutup"];
     }
-    if (isset($data["kordinat"])) {
-      $kordinat = $data["kordinat"];
-    }
     //var_dump($data);
+      
+    $query = "UPDATE contact SET alamat= '$alamat', telepon= '$nomor', hari_buka= '$hari', jam_buka= '$buka', jam_tutup= '$tutup'";
 
-    $query = "UPDATE contact SET alamat= '$alamat', telepon= '$nomor', hari_buka= '$hari', jam_buka= '$buka', jam_tutup= '$tutup', kordinat= '$kordinat'";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);

@@ -350,4 +350,39 @@ class bookController
 
     return mysqli_affected_rows($conn);
   }
+
+
+  //function baru
+  function tampil(){
+    global $conn;
+    $query = "SELECT * FROM book order by id_book desc";
+    $result = mysqli_query($conn, $query);
+    while($row=mysqli_fetch_assoc($result)){
+        $rows[]=$row;
+    
+    }
+
+    return $rows;
+  }
+
+  function cari($search){
+    global $conn;
+    $query = "SELECT * FROM book WHERE judul = LIKE '%$search%'";
+    $result = mysqli_query($conn, $query);
+    while($row=mysqli_fetch_assoc($result)){
+        $rows[]=$row;
+    
+    }
+
+    return $rows;
+  }
+
+  function detailBok($id_book){
+    global $conn;
+    $query = "SELECT * FROM book WHERE id_book =$id_book";
+    $result = mysqli_query($conn, $query);
+    $row=mysqli_fetch_assoc($result);
+  
+  return $row;
+  }
 }

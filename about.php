@@ -32,7 +32,7 @@ $data2 = $contact->index();
 			<div class="card-img-galeri">
 			<img src="./assets/images/<?=$d1['foto'] ?>" alt="kumpulan foto museum perusnia" />
 			<div class="card-img-text">
-				<p>Foto halaman denpan museum</p>
+				<p><?=$d1['deskripsi'] ?></p>
 			</div>
 		</div>
 			<?php endforeach;?>
