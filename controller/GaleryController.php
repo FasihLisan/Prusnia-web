@@ -47,7 +47,7 @@ class GaleryController
       unlink("./assets/images/" . $gambar['foto']);
     }
 
-
+    
     $query = "DELETE FROM galeri where id_galeri=" . $id_galeri;
     mysqli_query($conn, $query);
 

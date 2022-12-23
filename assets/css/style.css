@@ -722,3 +722,61 @@ input[type='email']:focus {
 	text-align: center;
 	margin-bottom: 10px;
 }
+
+/* Detail Book */
+.button-cart {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #f4511e;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 120px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+  }
+  
+  .button-cart span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  
+  .button-cart span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+  }
+  
+  .button-cart:hover span {
+	padding-right: 25px;
+  }
+  
+  .button-cart:hover span:after {
+	opacity: 1;
+	right: 0;
+  }
+
+  .button-next {
+	background-color: #6f6966;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 4px 2px;
+	opacity: 0.6;
+	transition: 0.3s;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .button-next:hover {opacity: 1}

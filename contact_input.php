@@ -34,7 +34,7 @@ if( isset($_POST["submit"]))
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nomor Telepon</label>
-                    <input type="text" name="nomor" class="form-control" id="exampleFormControlInput1" value="<?= $data['telepon'] ?>" required>
+                    <input type="text" name="nomor" class="form-control" id="exampleFormControlInput1" value="<?= $data['telepon'] ?>" placeholder="628132xxxxx" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Hari Buka</label>
@@ -48,10 +48,10 @@ if( isset($_POST["submit"]))
                     <label for="exampleFormControlInput1" class="form-label">Jam Tutup</label>
                     <input type="time" name="tutup" class="form-control" id="exampleFormControlInput1" value="<?= $data['jam_tutup'] ?>" required>
                 </div>
-                <div class="mb-3">
+                <!--<div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Kordinat</label>
-                        <textarea class="form-control" name="kordinat"  id="exampleFormControlTextarea1" rows="3" required><?= $data['kordinat'] ?></textarea>
-                </div>
+                        <textarea class="form-control" name="kordinat"  id="exampleFormControlTextarea1" rows="3" required> </textarea>
+                </div>-->
                 <div class="mb-3">
                 <button type="submit" name="submit" class="btn btn-success">Simpan</button>
                 </div>
