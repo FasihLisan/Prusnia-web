@@ -18,7 +18,7 @@ class dashboardController
   function index()
   {
     $data = [
-      "view" => "dashboard.php"
+      "view" => "book.php"
     ];
     return $data;
   }

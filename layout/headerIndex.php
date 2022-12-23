@@ -39,8 +39,8 @@ $user =  new userController;
                             <img src="<?= isset($user->getUserById($_SESSION['userdata']['id_users'])['foto']) ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle img-nav" width="40" alt="" srcset="" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light bg-white mt-2">
-                            <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
-                            <li><a class="dropdown-item" href="#">Setting</a></li>
+                            <li><a class="dropdown-item" href="<?= isset($_SESSION['userdata']['id_level']) == 1 ? 'dashboard_admin.php' : 'book.php' ?>">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="setting.php">Setting</a></li>
                             <li><a class="dropdown-item text-danger" href="logout.php">Sign Out</a></li>
                         </ul>
                     </li>
@@ -53,5 +53,5 @@ $user =  new userController;
 
 
     <!-- whatassppp buble -->
-    <span class="whatsapp-buble"><a href="https://api.whatsapp.com/send?phone=<?=$data2['telepon']?>&text=Halo%20saya%20ingin%20bertanya%20mengenai%20perusnia" target="_blank" class="fa-brands fa-4x fa-square-whatsapp"></a></span>
+    <span class="whatsapp-buble"><a href="https://api.whatsapp.com/send?phone=<?= $data2['telepon'] ?>&text=Halo%20saya%20ingin%20bertanya%20mengenai%20perusnia" target="_blank" class="fa-brands fa-4x fa-square-whatsapp"></a></span>
     <!-- whatassppp buble -->

@@ -12,8 +12,52 @@ class transactionController
 
   public function getUserTransaction($id_users)
   {
-    # code...seelct detile transaction joain id user joaintransaction
+    global $conn;
+    $query = "SELECT * FROM transaction JOIN va_numbers ON va_numbers.id_transaction=transaction.id_transaction JOIN payment_amount ON payment_amount.id_transaction=transaction.id_transaction JOIN detail_transaction ON detail_transaction.transaction_id=transaction.transaction_id WHERE detail_transaction.id_users=$id_users GROUP BY transaction.id_transaction";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+    }
+    if (isset($rows)) {
+      $response = [
+        "status" => 200,
+        "message" => "success",
+        "data" => $rows
+      ];
+      echo json_encode($response);
+    } else {
+      $response = [
+        "status" => 400,
+        "message" => "failed"
+      ];
+      echo json_encode($response);
+    }
   }
+
+  public function getDetileUserTransaction($transaction_id)
+  {
+    global $conn;
+    $query = "SELECT * FROM detail_transaction JOIN transaction ON detail_transaction.transaction_id=transaction.transaction_id JOIN users ON detail_transaction.id_users = users.id_users JOIN book ON detail_transaction.id_book=book.id_book WHERE detail_transaction.transaction_id='$transaction_id'";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+    }
+    if (isset($rows)) {
+      $response = [
+        "status" => 200,
+        "message" => "success",
+        "data" => $rows
+      ];
+      echo json_encode($response);
+    } else {
+      $response = [
+        "status" => 400,
+        "message" => "failed"
+      ];
+      echo json_encode($response);
+    }
+  }
+
   public function insertDetileTransaction()
   {
     global $conn;

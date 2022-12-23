@@ -1,9 +1,9 @@
 <?php
-$active = "category.php";
+$active = "my_order.php";
 require './layout/headerBookCenter.php';
 ?>
 
-<h4 class="my-4">Category</h4>
+<h4 class="my-4">My order history</h4>
 
 <?php if (isset($_SESSION['success'])) {
   echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -13,23 +13,33 @@ require './layout/headerBookCenter.php';
   unset($_SESSION['success']);
 } ?>
 
-<a href="addCategory.php" id="addBook" class="btn btn-success "><i class="fa-solid fa-plus"></i> Add Category</a>
 <div class="table-responsive py-3">
   <table class="table table-hover align-middle " id="table">
     <thead class="bg-default shadow-sm">
       <tr>
         <th>No</th>
-        <th>Category Name</th>
-        <th>action</th>
+        <th>Cover</th>
+        <th>Kode Buku</th>
+        <th>Judul</th>
+        <th>Author</th>
+        <th>Harga</th>
+        <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="text-center"></td>
+        <td>
+          <img src="./assets/images/" alt="cover_buku" width="80px">
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>IDR </td>
         <td></td>
         <td>
-          <a href="updateCategory.php?id_book=" class="btn btn-warning "><i class="fa-solid fa-edit"></i></a>
-          <button class="btn btn-danger sweet-delete"><i class=" fa-solid fa-trash"></i></button>
+          <a href="#" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
         </td>
       </tr>
     </tbody>

@@ -28,7 +28,6 @@ $user = new userController;
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <!-- quill editor -->
 
-
   <title>Perusnia Book Center</title>
 </head>
 
@@ -50,7 +49,7 @@ $user = new userController;
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light bg-white mt-2">
                   <li><a class="dropdown-item" href="index.php">Home</a></li>
-                  <li><a class="dropdown-item" href="#">Setting</a></li>
+                  <li><a class="dropdown-item" href="setting.php">Setting</a></li>
                   <li><a class="dropdown-item text-danger" href="logout.php">Sign Out</a></li>
                 </ul>
               </li>
@@ -61,7 +60,7 @@ $user = new userController;
       <!-- navigation -->
     </div>
     <div class="row section-admin-panel">
-      <div class="col-md-2 sidebar-section bg-white border-end">
+      <div class="col-md-2 sidebar-section hide bg-white border-end">
         <div class="sidebar-profile">
           <img src="<?= isset($user->getUserById($_SESSION['userdata']['id_users'])['foto']) ? "./assets/images/" . $user->getUserById($_SESSION['userdata']['id_users'])['foto'] : "./assets/images/default_image.png" ?>" class="rounded-circle" width="50" alt="" />
           <div class="profile-status">
@@ -71,32 +70,51 @@ $user = new userController;
         </div>
 
         <ul class="navbar-nav menus navbar-side">
-          <li class="nav-item">
-            <a href="<?= $dashboard->index()['view']; ?>" class="nav-link <?= $active ==  "dasbhaord.php" ? 'active' : '' ?>"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= $bookCatalog->index()['view']; ?>" class="nav-link <?= $active ==  "bookCatalog.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book Catalog</a>
-          </li>
-          <li class="nav-item">
-            <a href="paymentCenter.php" class="nav-link <?= $active ==  "paymentCenter.php" ? 'active' : '' ?>"><i class="fa-solid fa-credit-card"></i> Payment Center</a>
-          </li>
-          <li class="nav-item">
-            <a href="category.php" class="nav-link <?= $active ==  "category.php" ? 'active' : '' ?>"><i class="fa-solid fa-filter"></i> Category</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-gears"></i>
-            About Website
-            </a>
 
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">About</a></li>
-              <li><a class="dropdown-item" href="galeri.php">Galeri</a></li>
-              <li><a class="dropdown-item" href="contact_input.php">Contact</a></li>
-            </ul>
-          <li class="nav-item">
-            <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting Account</a>
-          </li>
+          <?php if ($_SESSION["userdata"]['id_level'] == 1) : ?>
+
+            <li class="nav-item">
+              <a href="dashboard_admin.php" class="nav-link <?= $active ==  "dashboard_admin.php" ? 'active' : '' ?>"><i class="fa-solid fa-chart-line"></i> Dashboard Admin</a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $bookCatalog->index()['view']; ?>" class="nav-link <?= $active ==  "bookCatalog.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book Catalog</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link <?= $active ==  "about_website.php" ? 'active' : '' ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-gears"></i>
+                About Website
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">About</a></li>
+                <li><a class="dropdown-item" href="galeri.php">Galeri</a></li>
+                <li><a class="dropdown-item" href="contact_input.php">Contact</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting Account</a>
+            </li>
+
+          <?php elseif ($_SESSION["userdata"]['id_level'] == 2) : ?>
+
+            <li class="nav-item">
+              <a href="<?= $dashboard->index()['view']; ?>" class="nav-link <?= $active ==  "book.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book</a>
+            </li>
+            <li class="nav-item">
+              <a href="my_book.php" class="nav-link <?= $active ==  "my_book.php" ? 'active' : '' ?>"><i class="fa-solid fa-book-reader"></i> My Book</a>
+            </li>
+            <li class="nav-item">
+              <a href="favorite_book.php" class="nav-link <?= $active ==  "favorite_book.php" ? 'active' : '' ?>"><i class="fa-solid fa-heart"></i> Favorite book</a>
+            </li>
+            <li class="nav-item">
+              <a href="my_order.php" class="nav-link <?= $active ==  "my_order.php" ? 'active' : '' ?>"><i class="fa-solid fa-credit-card"></i> My Order</a>
+            </li>
+            <li class="nav-item">
+              <a href="setting.php" class="nav-link <?= $active ==  "setting.php" ? 'active' : '' ?>"><i class="fa-solid fa-gear"></i> Setting Account</a>
+            </li>
+
+          <?php endif ?>
+
         </ul>
       </div>
       <div class="col content-section">

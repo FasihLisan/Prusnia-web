@@ -1,19 +1,18 @@
 <?php
-$active = "contact_input.php";
+$active = "about_website.php";
 require './layout/headerBookCenter.php';
 require_once './controller/ContactController.php';
 $contact = new ContactController();
 $data = $contact->index();
 
-if( isset($_POST["submit"]))
-{
+if (isset($_POST["submit"])) {
     $contact = new ContactController();
-    if( $contact->updateContact($_POST) > 0 ) {
+    if ($contact->updateContact($_POST) > 0) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
                 Data berhasil di update
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
-    }else {
+    } else {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
                 Data berhasil di update
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -56,7 +55,6 @@ if( isset($_POST["submit"]))
                 <button type="submit" name="submit" class="btn btn-success">Simpan</button>
                 </div>
         </form>
-
 
 
 
