@@ -4,36 +4,6 @@ require './controller/cartController.php';
 $cart = new cartController();
 
 
-
-$postRequest = array(
-    'firstFieldData' => 'foo',
-    'secondFieldData' => 'bar'
-);
-
-$cURLConnection = curl_init('https://app.sandbox.midtrans.com/snap/v1/transactions');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Header-Key: Header-Value',
-    'Header-Key-2: Header-Value-2'
-));
-curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, $postRequest);
-curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-
-
-$apiResponse = curl_exec($cURLConnection);
-curl_close($cURLConnection);
-
-// $apiResponse - available data from the API request
-$jsonArrayResponse - json_decode($apiResponse);
-
-
-
-
-
-
-
-
-
-
 ?>
 <section class="cart">
     <div class="container cart-page">
