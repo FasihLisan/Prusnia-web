@@ -19,7 +19,7 @@ $cart = new cartController();
                 <?php if ($cart->getCartItemById($_SESSION['userdata']['id_users']) != null) : ?>
                     <?php foreach ($cart->getCartItemById($_SESSION['userdata']['id_users']) as $c) : ?>
                         <div class="box">
-                            <img src="https://bukuajar.com/wp-content/uploads/2020/07/ba-2-1.jpg">
+                            <img src="./assets/images/<?= $c['cover']; ?>">
                             <div class="content">
                                 <h4><?= $c['judul']; ?></h4>
                                 <p><?= $c['author']; ?></p>

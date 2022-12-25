@@ -28,7 +28,7 @@ class transactionController
     } else {
       $response = [
         "status" => 400,
-        "message" => "failed"
+        "message" => "failed" . mysqli_error($conn)
       ];
       echo json_encode($response);
     }

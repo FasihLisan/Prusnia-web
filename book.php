@@ -62,7 +62,5 @@ $book = new bookController();
       <h5 class="text-muted">Data kosong</h5>
     <?php endif ?>
 
-  </div>
-</div>
 
-<?php require './layout/footerBookCenter.php' ?>
+    <?php require './layout/footerBookCenter.php' ?>

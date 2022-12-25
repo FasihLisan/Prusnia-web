@@ -125,3 +125,16 @@
 	font-size: 18px;
 	margin-bottom: 2px;
 }
+.my-book {
+	display: grid;
+	grid-template-columns: 18% 18% 18% 18% 18%;
+	gap: 10px;
+}
+
+.my-book .product-img {
+	height: 250px;
+}
+.my-book .product-item {
+	padding: 0px !important;
+	margin: 10px;
+}
