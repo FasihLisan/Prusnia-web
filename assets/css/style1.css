@@ -64,6 +64,10 @@
 	border: none;
 	height: 280px;
 }
+.container {
+	width: 1200px !important;
+	overflow: hidden;
+}
 
 .ratings {
 	margin-right: 10px;
