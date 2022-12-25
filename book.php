@@ -45,7 +45,7 @@ $book = new bookController();
       <?php foreach ($book->getAllbook() as $b) : ?>
         <div class="col product-item">
           <div class="product-img">
-            <img src="./assets/images/book.jpg" alt="" class="img-fluid d-block mx-auto">
+            <img src="./assets/images/<?= $b['cover']; ?>" alt="" class="img-fluid d-block mx-auto">
           </div>
 
           <div class="product-info p-3">
@@ -53,7 +53,7 @@ $book = new bookController();
             <a href="#" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
             <span class="product-price">Rp. <?= number_format($b['harga'], 2) ?></span>
             <div class="mt-1">
-              <input id="input-id" type="text" class="rating" data-size="xs" value="2" readonly>
+              <input id="input-id" type="text" class="rating" data-size="xs" value="<?= $b['rate_book']; ?>" readonly>
             </div>
           </div>
         </div>

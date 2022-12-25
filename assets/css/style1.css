@@ -51,6 +51,23 @@
 }
 .product-item {
 	width: 180px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216) !important;
+	transition: 0.3s;
+}
+
+.product-item:hover {
+	animation: ease;
+	width: 182px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.353) !important;
+}
+
+@keyframes example {
+	from {
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216) !important;
+	}
+	to {
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216) !important;
+	}
 }
 
 /* rating */
