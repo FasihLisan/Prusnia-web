@@ -10,10 +10,6 @@ class bookController
     if (!isset($_SESSION)) {
       session_start();
     }
-    if ($_SESSION["userdata"]["is-login"] != true) {
-      $_SESSION["failed"] = "Login required";
-      header("Location: signin.php");
-    }
   }
   function index()
   {
@@ -353,36 +349,66 @@ class bookController
 
 
   //function baru
-  function tampil(){
+  function tampil()
+  {
     global $conn;
     $query = "SELECT * FROM book order by id_book desc";
     $result = mysqli_query($conn, $query);
-    while($row=mysqli_fetch_assoc($result)){
-        $rows[]=$row;
-    
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
     }
 
     return $rows;
   }
 
-  function cari($search){
+  function cari($search)
+  {
     global $conn;
     $query = "SELECT * FROM book WHERE judul = LIKE '%$search%'";
     $result = mysqli_query($conn, $query);
-    while($row=mysqli_fetch_assoc($result)){
-        $rows[]=$row;
-    
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
     }
 
     return $rows;
   }
 
-  function detailBok($id_book){
+  function detailBok($id_book)
+  {
     global $conn;
     $query = "SELECT * FROM book WHERE id_book =$id_book";
     $result = mysqli_query($conn, $query);
-    $row=mysqli_fetch_assoc($result);
-  
-  return $row;
+    $row = mysqli_fetch_assoc($result);
+
+    return $row;
+  }
+
+  public function getTopRateBook()
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users GROUP BY book.id_book ORDER BY rate_book DESC LIMIT 10";
+    $res = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($res)) {
+      $rows[] = $row;
+    }
+
+    if ($rows) {
+      return $rows;
+    } else {
+      return "data kosong";
+    }
+  }
+
+  public function getAllbook()
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users GROUP BY book.id_book ORDER BY book.id_book ASC";
+    $res = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($res)) {
+      $rows[] = $row;
+    }
+    if (isset($rows)) {
+      return $rows;
+    }
   }
 }

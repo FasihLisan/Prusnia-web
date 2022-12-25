@@ -1,0 +1,106 @@
+.product-item {
+	border: 1px solid rgb(219, 219, 219);
+}
+.product-img {
+	position: relative;
+	overflow: hidden;
+}
+.btns {
+	position: absolute;
+	left: 0;
+	bottom: -100%;
+	font-size: 15px;
+	font-weight: 300;
+	transition: all 0.3s ease-in-out;
+}
+.btns button {
+	border: none;
+	background-color: rgb(39, 39, 39);
+	color: #fff;
+	transition: all 0.3s ease-in-out;
+}
+.btns button:hover {
+	color: #fcb941;
+}
+.product-img:hover .btns {
+	bottom: 0;
+}
+
+.heart-icon {
+	position: absolute;
+	top: 16px;
+	right: 15px;
+	font-size: 18px;
+}
+
+.product-type {
+	font-size: 13px;
+	opacity: 0.8;
+}
+.product-name {
+	transition: all 0.3s ease-in-out;
+}
+.product-name:hover {
+	color: #fcb941 !important;
+}
+.product-price {
+	color: #fcb941;
+}
+.rating {
+	font-size: 13px;
+}
+.product-item {
+	width: 180px;
+}
+
+/* rating */
+
+.height-100 {
+	height: 100vh;
+}
+
+.card {
+	width: 200px;
+	border: none;
+	height: 280px;
+}
+
+.ratings {
+	margin-right: 10px;
+}
+.top-rated-book .clear-rating {
+	display: none !important;
+}
+.top-rated-book .caption {
+	display: none !important;
+}
+
+.top-rated-book .owl-item {
+	width: auto !important;
+	margin-right: 40px;
+}
+
+.ratings i {
+	color: #cecece;
+	font-size: 32px;
+}
+
+.rating-color {
+	color: #fbc634 !important;
+}
+
+.review-count {
+	font-weight: 400;
+	margin-bottom: 2px;
+	font-size: 24px !important;
+}
+
+.small-ratings i {
+	color: #cecece;
+}
+
+.review-stat {
+	font-weight: 300;
+	font-size: 18px;
+	margin-bottom: 2px;
+}
