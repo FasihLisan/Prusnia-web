@@ -22,7 +22,7 @@ $data = $galery->tampil();
         <tr>
             <td><img src="./assets/images/<?=$d['foto'] ?>" width='100%'class="" alt="Foto Perusnia"></td>
             <td><?= $d['deskripsi']; ?> </td>
-            <td><a href="deleteGalery.php?id_galeri=<?php $d['id_galeri'];?>" onclick="confirmationHapusData()" class="btn btn-danger" role="button">Hapus</a></td>
+            <td><a href="deleteGalery.php?id_galeri=<?= $d['id_galeri'];?>"  class="btn btn-danger" role="button">Hapus</a></td>
         </tr>
         <?php endforeach ?>
         </tbody>
