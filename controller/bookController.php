@@ -386,7 +386,7 @@ class bookController
   public function getTopRateBook()
   {
     global $conn;
-    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users GROUP BY book.id_book ORDER BY rate_book DESC LIMIT 10";
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users GROUP BY book.id_book ORDER BY rate_book DESC";
     $res = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($res)) {
       $rows[] = $row;
@@ -409,6 +409,22 @@ class bookController
     }
     if (isset($rows)) {
       return $rows;
+    }
+  }
+
+  public function getTopRateBook3()
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users GROUP BY book.id_book ORDER BY rate_book DESC LIMIT 3";
+    $res = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($res)) {
+      $rows[] = $row;
+    }
+
+    if ($rows) {
+      return $rows;
+    } else {
+      return "data kosong";
     }
   }
 

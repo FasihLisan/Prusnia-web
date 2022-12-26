@@ -13,7 +13,7 @@ class transactionController
   public function getUserTransaction($id_users)
   {
     global $conn;
-    $query = "SELECT * FROM transaction JOIN va_numbers ON va_numbers.id_transaction=transaction.id_transaction JOIN payment_amount ON payment_amount.id_transaction=transaction.id_transaction JOIN detail_transaction ON detail_transaction.transaction_id=transaction.transaction_id WHERE detail_transaction.id_users=$id_users GROUP BY transaction.id_transaction";
+    $query = "SELECT * FROM transaction JOIN va_numbers ON va_numbers.id_transaction=transaction.id_transaction LEFT JOIN payment_amount ON payment_amount.id_transaction=transaction.id_transaction JOIN detail_transaction ON detail_transaction.transaction_id=transaction.transaction_id WHERE detail_transaction.id_users=$id_users GROUP BY transaction.id_transaction";
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
       $rows[] = $row;

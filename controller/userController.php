@@ -84,7 +84,7 @@ class userController
 
     return mysqli_affected_rows($conn);
   }
-// untuk crud setting account
+  // untuk crud setting account
   function update($id_user)
   {
 
@@ -178,7 +178,7 @@ class userController
       $result = mysqli_query($conn, $query);
       $result = mysqli_fetch_assoc($result);
       if ($result['foto'] != "" || $result['foto'] != null) {
-        unlink('../assets/images/' . $result['foto']);
+        unlink('./assets/images/' . $result['foto']);
       }
 
       if (!move_uploaded_file($foto['tmp_name'], './assets/images/' . $filename)) {
