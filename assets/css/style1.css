@@ -81,8 +81,8 @@
 	border: none;
 	height: 280px;
 }
-.container {
-	width: 1200px !important;
+.top-rated-book {
+	width: auto !important;
 	overflow: hidden;
 }
 

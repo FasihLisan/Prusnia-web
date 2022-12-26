@@ -8,9 +8,9 @@ $book = new bookController();
 ?>
 
 <h4 class="my-4">Top rated book</h4>
-<div class="container">
+<div class="container top-rated-book">
 
-  <div class="row g-4 mx-auto owl-carousel owl-theme top-rated-book">
+  <div class="row g-4 my-4 mx-auto owl-carousel owl-theme ">
 
     <?php if ($book->getTopRateBook() != null) :  ?>
       <?php foreach ($book->getTopRateBook() as $b) : ?>
@@ -38,8 +38,8 @@ $book = new bookController();
 </div>
 <h4 class="my-4">Some book</h4>
 
-<div class="container">
-  <div class="row g-4 mx-auto owl-carousel owl-theme top-rated-book">
+<div class="container top-rated-book">
+  <div class="row g-4 my-4 mx-auto owl-carousel owl-theme top-rated-book">
 
     <?php if ($book->getAllbook() != null) :  ?>
       <?php foreach ($book->getAllbook() as $b) : ?>
