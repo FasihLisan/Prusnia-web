@@ -5,6 +5,7 @@ require './controller/userController.php';
 $dashboard =  new dashboardController;
 $bookCatalog =  new bookController;
 $user = new userController;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,7 +137,7 @@ $user = new userController;
 
         </ul>
       </div>
-      <div class="col-md-10 content-section">
+      <div class="col-md-10 px-5 content-section">
 
         <div class="row">
           <div class="content">

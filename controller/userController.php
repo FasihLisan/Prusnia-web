@@ -10,6 +10,7 @@ class userController
     if (!isset($_SESSION)) {
       session_start();
     }
+
     function validation($data)
     {
       $data = trim($data);

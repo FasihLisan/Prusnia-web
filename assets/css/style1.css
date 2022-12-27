@@ -96,6 +96,13 @@
 	display: none !important;
 }
 
+.my-book .clear-rating {
+	display: none !important;
+}
+.my-book .caption {
+	display: none !important;
+}
+
 .top-rated-book .owl-item {
 	width: auto !important;
 	margin-right: 40px;

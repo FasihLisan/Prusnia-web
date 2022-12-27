@@ -1,9 +1,12 @@
 <?php
+require_once './root/base_url.php';
 require './controller/userController.php';
 require_once './controller/ContactController.php';
 $contact = new ContactController();
 $data2 = $contact->index();
 $user =  new userController;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +21,11 @@ $user =  new userController;
     <script src="./assets/js/jquery.min.js"></script>
     <title>Perusnia Books</title>
     <link rel="icon" href="" type="image/icon type" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-iIMWCUVAqp4mewuM"></script>
+
 </head>
 
 <body>
