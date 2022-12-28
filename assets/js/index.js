@@ -31,3 +31,9 @@ function confirmationHapusData(url) {
 		}
 	});
 }
+
+$('#input-id').rating();
+$('#input-id').rating({
+	size: 'xs',
+	showClear: false,
+});

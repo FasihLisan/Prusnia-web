@@ -18,10 +18,7 @@ $('.owl-carousel').owlCarousel({
 		},
 	},
 });
-
 // rating
-$('#input-id').rating();
 $('#input-id').rating({
 	size: 'xs',
-	showClear: false,
 });

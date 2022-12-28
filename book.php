@@ -1,5 +1,5 @@
 <?php
-$active = "dasbhaord.php";
+$active = "book.php";
 require_once './layout/headerBookCenter.php';
 
 require_once './controller/bookController.php';
@@ -10,7 +10,7 @@ $book = new bookController();
 <h4 class="my-4">Top rated book</h4>
 <div class="container top-rated-book">
 
-  <div class="row g-4 my-4 mx-auto owl-carousel owl-theme ">
+  <div class="row mx-auto owl-carousel owl-theme ">
 
     <?php if ($book->getTopRateBook() != null) :  ?>
       <?php foreach ($book->getTopRateBook() as $b) : ?>
@@ -21,7 +21,7 @@ $book = new bookController();
 
           <div class="product-info p-3">
             <span class="product-type"><?= $b['author']; ?></span>
-            <a href="#" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
+            <a href="detail_book.php?id=<?= $b['id_book']; ?>" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
             <span class="product-price">Rp. <?= number_format($b['harga'], 2) ?></span>
             <div class="mt-1">
               <input id="input-id" type="text" class="rating" data-size="xs" value="<?= $b['rate_book']; ?>" readonly>
@@ -38,7 +38,7 @@ $book = new bookController();
 </div>
 <h4 class="my-4">Some book</h4>
 
-<div class="container top-rated-book">
+<div class="container top-rated-book some-book">
   <div class="row g-4 my-4 mx-auto owl-carousel owl-theme top-rated-book">
 
     <?php if ($book->getAllbook() != null) :  ?>
@@ -50,7 +50,7 @@ $book = new bookController();
 
           <div class="product-info p-3">
             <span class="product-type"><?= $b['author']; ?></span>
-            <a href="#" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
+            <a href="detail_book.php?id=<?= $b['id_book']; ?>" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
             <span class="product-price">Rp. <?= number_format($b['harga'], 2) ?></span>
             <div class="mt-1">
               <input id="input-id" type="text" class="rating" data-size="xs" value="<?= $b['rate_book']; ?>" readonly>

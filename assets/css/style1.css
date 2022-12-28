@@ -81,10 +81,6 @@
 	border: none;
 	height: 280px;
 }
-.top-rated-book {
-	width: auto !important;
-	overflow: hidden;
-}
 
 .ratings {
 	margin-right: 10px;
@@ -101,11 +97,6 @@
 }
 .my-book .caption {
 	display: none !important;
-}
-
-.top-rated-book .owl-item {
-	width: auto !important;
-	margin-right: 40px;
 }
 
 .ratings i {
