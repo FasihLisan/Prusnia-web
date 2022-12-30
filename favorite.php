@@ -1,4 +1,7 @@
-<?php require './layout/headerIndex.php'; ?>
+<?php require './layout/headerIndex.php'; 
+require_once './controller/favoriteController.php';
+$favorit = new favoriteController();
+?>
 
 <section class="book-page" id="Books">
   <div class="sidebar-book">
@@ -20,58 +23,28 @@
       </div>
 
       <div class="book-content">
+        <?php if ($favorit->getFavorite($_SESSION['userdata'] ['id_users']) != null) :  ?>
+          <?php foreach ($favorit->getFavorite($_SESSION['userdata'] ['id_users']) as $fav) : //var_dump($fav);?>
         <div class="card-book">
           <div class="book-cover">
             <div class="book-rate">
               <i class="fa-solid fa-star"></i>
-              <span>4.5/5</span>
+              <span><?=$fav['rate_book'] ?></span>
             </div>
-            <img src="./assets/images/book.jpg" alt="" />
+            <a href="viewPDF.php?file=<?=$fav['file_buku'] ?>"> <img src="./assets/images/<?=$fav['cover']; ?>" alt="" /></a>
+            
           </div>
-          <h3 class="book-title">Perkembangan uang seluruh dunia</h3>
-          <span>Salman Alrosyid</span>
-          <h3 class="price">Rp. 45.000</h3>
+          <h3 class="book-title"><a href="viewPDF.php?file=<?=$fav['file_buku'] ?>"> <?=$fav['judul'] ?> </a></h3>
+          <span><?=$fav['author'] ?></span>
+          <h3 class="price"> Rp.<?= number_format ($fav['harga'], 2) ?></h3>
           <a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
         </div>
-        <div class="card-book">
-          <div class="book-cover">
-            <div class="book-rate">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5/5</span>
-            </div>
-            <img src="./assets/images/book.jpg" alt="" />
-          </div>
-          <h3 class="book-title">Perkembangan uang seluruh dunia</h3>
-          <span>Salman Alrosyid</span>
-          <h3 class="price">Rp. 45.000</h3>
-          <a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
-        </div>
-        <div class="card-book">
-          <div class="book-cover">
-            <div class="book-rate">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5/5</span>
-            </div>
-            <img src="./assets/images/book.jpg" alt="" />
-          </div>
-          <h3 class="book-title">Perkembangan uang seluruh dunia</h3>
-          <span>Salman Alrosyid</span>
-          <h3 class="price">Rp. 45.000</h3>
-          <a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
-        </div>
-        <div class="card-book">
-          <div class="book-cover">
-            <div class="book-rate">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5/5</span>
-            </div>
-            <img src="./assets/images/book.jpg" alt="" />
-          </div>
-          <h3 class="book-title">Perkembangan uang seluruh dunia</h3>
-          <span>Salman Alrosyid</span>
-          <h3 class="price">Rp. 45.000</h3>
-          <a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
-        </div>
+
+        <?php endforeach ?>
+  <?php else : ?>
+    <h5 class="text-muted">Data kosong</h5>
+  <?php endif ?>
+
       </div>
     </div>
   </div>

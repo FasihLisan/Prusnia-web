@@ -162,7 +162,7 @@ class bookController
     return mysqli_affected_rows($conn);
   }
 
-  function updateBook($id_book)
+  function updateBook($id_about)
   {
     global $conn;
     //next join payment id
@@ -364,13 +364,15 @@ class bookController
   function cari($search)
   {
     global $conn;
-    $query = "SELECT * FROM book WHERE judul = LIKE '%$search%'";
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book join users ON book.id_users=users.id_users WHERE judul LIKE '%$search%' GROUP BY book.id_book ORDER BY book.id_book ASC ";
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
       $rows[] = $row;
     }
 
-    return $rows;
+    if (isset($rows)) {
+      return $rows;
+    }
   }
 
   function detailBok($id_book)
@@ -430,6 +432,10 @@ class bookController
 
   public function getMyBookUsers($id_users)
   {
+    if ($_SESSION["userdata"]["is-login"] != true) {
+      $_SESSION["failed"] = "Login required";
+      header("Location: signin.php");
+    }
     global $conn;
     $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book JOIN users ON book.id_users=users.id_users JOIN mybook ON mybook.id_book=book.id_book WHERE mybook.id_users=$id_users GROUP BY mybook.id_book ORDER BY mybook.id_book ASC";
     $result = mysqli_query($conn, $query);

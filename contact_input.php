@@ -3,7 +3,7 @@ $active = "about_website.php";
 require './layout/headerBookCenter.php';
 require_once './controller/ContactController.php';
 $contact = new ContactController();
-$data = $contact->index();
+
 
 if (isset($_POST["submit"])) {
     $contact = new ContactController();
@@ -19,6 +19,8 @@ if (isset($_POST["submit"])) {
   </div>';
     }
 }
+
+$data = $contact->index();
 ?>
 
 <h4 class="my-4">Input Contact</h4>

@@ -7,9 +7,15 @@ if( isset($_POST["submit"]))
 {
     $galeri = new GaleryController();
     if( $galeri->addGaleri($_POST) > 0 ) {
-        echo "Data berhasil ditambahkan.";
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data berhasil di tambahkan
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
     }else {
-        echo "Data gagal ditambahkan.";
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data berhasil di update
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
     }
 }
 ?>

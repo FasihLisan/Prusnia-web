@@ -104,7 +104,7 @@ $user = new userController;
               </a>
 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">About</a></li>
+                <li><a class="dropdown-item" href="edit_about.php">About</a></li>
                 <li><a class="dropdown-item" href="galeri.php">Galeri</a></li>
                 <li><a class="dropdown-item" href="contact_input.php">Contact</a></li>
               </ul>
