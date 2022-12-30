@@ -685,8 +685,12 @@ input[type='email']:focus {
 .content-book .search .fa-search {
 	position: absolute;
 	right: 0;
+	transform: translateY(4px) translateX(-5px);
+	border-radius: 50%;
 	padding: 1rem;
 	cursor: pointer;
+	background-color: rgb(235, 237, 247);
+	border: none;
 }
 .category-book-page ul li {
 	display: inline-block;

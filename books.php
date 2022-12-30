@@ -5,15 +5,12 @@ require_once './controller/bookController.php';
 $contact = new ContactController();
 $data2 = $contact->index();
 $book = new bookController();
-$bok = $book->getAllbook();
+	
 
-if (isset($_POST["search"])) {
-	$book = new bookController();
-	if ($book->cari($_POST) > 0) {
-		echo "Data berhasil ditambahkan.";
-	} else {
-		echo "Data gagal ditambahkan.";
-	}
+if (isset($_POST["submit"])) {
+	$bok = $book->cari($_POST['search']);
+}else{
+	$bok = $book->getAllbook();
 }
 ?>
 
@@ -32,7 +29,7 @@ if (isset($_POST["search"])) {
 			<div class="search">
 				<form action="" method="post">
 					<input type="text" name="search" id="search" placeholder="Cari buku" class="search-input" autocomplete="off" />
-					<i class="fa-solid fa-search"></i>
+					<button type="submit" name="submit" class="fa-solid fa-search"></button>
 				</form>
 			</div>
 
