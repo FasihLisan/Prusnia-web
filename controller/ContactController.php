@@ -14,7 +14,9 @@ class ContactController
     $result = mysqli_query($conn, $query);
     $data = mysqli_fetch_assoc($result);
 
-    return $data;
+    if (isset($data)) {
+      return $data;
+    }
   }
 
   function saveContact($data)
@@ -67,7 +69,7 @@ class ContactController
       $tutup = $data["tutup"];
     }
     //var_dump($data);
-      
+
     $query = "UPDATE contact SET alamat= '$alamat', telepon= '$nomor', hari_buka= '$hari', jam_buka= '$buka', jam_tutup= '$tutup'";
 
     mysqli_query($conn, $query);

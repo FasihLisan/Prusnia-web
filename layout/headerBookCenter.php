@@ -137,8 +137,8 @@ $user = new userController;
 
         </ul>
       </div>
-      <div class="col-md-10 px-5 content-section">
+      <div class="col-md px-5 content-section ">
 
         <div class="row">
           <div class="content">
-            <div class="container">
+            <div class="container ">

@@ -25,6 +25,10 @@
 .product-img:hover .btns {
 	bottom: 0;
 }
+.owl-carousel {
+	width: 1120px !important;
+	overflow: hidden;
+}
 
 .heart-icon {
 	position: absolute;
@@ -51,6 +55,7 @@
 }
 .product-item {
 	width: 180px;
+	margin-right: 200px;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216) !important;
 	transition: 0.3s;
 }
@@ -85,10 +90,10 @@
 .ratings {
 	margin-right: 10px;
 }
-.top-rated-book .clear-rating {
+.owl-carousel .clear-rating {
 	display: none !important;
 }
-.top-rated-book .caption {
+.owl-carousel .caption {
 	display: none !important;
 }
 
@@ -97,6 +102,9 @@
 }
 .my-book .caption {
 	display: none !important;
+}
+.my-book .product-item {
+	margin-right: 100px;
 }
 
 .ratings i {
