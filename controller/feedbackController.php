@@ -47,22 +47,20 @@ class feedbackController
   public function getSpesificRateBook($id_users, $id_book)
   {
     global $conn;
-    $query = "SELECT rate_book.id_rate_book,users.foto,CONCAT(users.nama_depan,' ',users.nama_belakang) as nama_lengkap, rate_book.rate_score, rate_book.created_at,rate_book.comment FROM rate_book JOIN users ON rate_book.id_users=users.id_users WHERE rate_book.id_book=$id_book AND rate_book.id_users=$id_users";
+    $query = "SELECT rate_book.id_rate_book,users.foto,CONCAT(users.nama_depan,' ',users.nama_belakang) as nama_lengkap, rate_book.rate_score, rate_book.created_at,rate_book.comment FROM rate_book JOIN users ON rate_book.id_users=users.id_users WHERE rate_book.id_book=$id_book AND rate_book.id_users=$id_users ORDER BY rate_book.id_rate_book ASC";
     $res = mysqli_query($conn, $query);
     $result = mysqli_fetch_assoc($res);
 
-    if (isset($rows)) {
-      return $rows;
+    if (isset($result)) {
+      return $result;
     }
   }
 
-  public function insert()
+  public function insert($id_users, $id_book)
   {
     global $conn;
     $rate_score = validation($_POST['rate_score']);
     $comment = validation($_POST['comment']);
-    $id_book = validation($_POST['id_book']);
-    $id_users = validation($_POST['id_users']);
 
     if (!$rate_score || !$id_book || !$id_users) {
       return false;

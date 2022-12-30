@@ -22,18 +22,8 @@ class favoriteController
 
     $row = mysqli_affected_rows($conn);
 
-    if ($row) {
-      $response = [
-        "status" => 200,
-        "message" => "success",
-      ];
-      echo json_encode($response);
-    } else {
-      $response = [
-        "status" => 404,
-        "message" => "not found",
-      ];
-      echo json_encode($response);
+    if (isset($row)) {
+      return $row;
     }
   }
 

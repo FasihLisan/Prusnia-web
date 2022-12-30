@@ -1,8 +1,13 @@
 <?php
-require './layout/headerIndex.php';
-require './controller/cartController.php';
+require_once './layout/headerIndex.php';
+require_once './controller/cartController.php';
 require_once './controller/userController.php';
 $cart = new cartController();
+
+if ($_SESSION["userdata"]["is-login"] != true) {
+    $_SESSION["failed"] = "Login required";
+    header("Location: signin.php");
+}
 
 require_once dirname(__FILE__) . './assets/midtrans-php-master/Midtrans.php';
 

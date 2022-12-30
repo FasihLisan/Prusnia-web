@@ -7,7 +7,7 @@ $filename = $_GET['file'];
 
 <head>
   <meta charset="utf-8">
-  <title>Read PDF</title>
+  <title>Read book page</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
   <!-- Flipbook StyleSheet -->

@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION["userdata"]["id_level"] != 2) {
+  header('Location:404.php');
+}
 $active = "book.php";
 require_once './layout/headerBookCenter.php';
 

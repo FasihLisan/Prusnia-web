@@ -118,7 +118,7 @@ $user = new userController;
           <?php elseif ($_SESSION["userdata"]['id_level'] == 2) : ?>
 
             <li class="nav-item">
-              <a href="<?= $dashboard->index()['view']; ?>" class="nav-link <?= $active ==  "book.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book</a>
+              <a href="book.php" class="nav-link <?= $active ==  "book.php" ? 'active' : '' ?>"><i class="fa-solid fa-book"></i> Book</a>
             </li>
             <li class="nav-item">
               <a href="my_book.php" class="nav-link <?= $active ==  "my_book.php" ? 'active' : '' ?>"><i class="fa-solid fa-book-reader"></i> My Book</a>

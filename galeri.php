@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION["userdata"]["id_level"] != 1) {
+    header('Location:404.php');
+}
 $active = "about_website.php";
 require './layout/headerBookCenter.php';
 require_once './controller/GaleryController.php';
@@ -18,13 +22,13 @@ $data = $galery->tampil();
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $d): ?>
-        <tr>
-            <td><img src="./assets/images/<?=$d['foto'] ?>" width='100%'class="" alt="Foto Perusnia"></td>
-            <td><?= $d['deskripsi']; ?> </td>
-            <td><a href="deleteGalery.php?id_galeri=<?= $d['id_galeri'];?>"  class="btn btn-danger" role="button">Hapus</a></td>
-        </tr>
-        <?php endforeach ?>
+            <?php foreach ($data as $d) : ?>
+                <tr>
+                    <td><img src="./assets/images/<?= $d['foto'] ?>" width='100%' class="" alt="Foto Perusnia"></td>
+                    <td><?= $d['deskripsi']; ?> </td>
+                    <td><a href="deleteGalery.php?id_galeri=<?= $d['id_galeri']; ?>" class="btn btn-danger" role="button">Hapus</a></td>
+                </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
 </div>

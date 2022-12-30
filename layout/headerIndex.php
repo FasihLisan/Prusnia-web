@@ -2,11 +2,15 @@
 require_once './root/base_url.php';
 require './controller/userController.php';
 require_once './controller/ContactController.php';
+require_once './controller/cartController.php';
+$cart_root = new cartController();
 $contact = new ContactController();
 $data2 = $contact->index();
 $user =  new userController;
 
-
+if (isset($_SESSION['userdata']['id_users'])) {
+    $item_total = $cart_root->getItemPriceTotal($_SESSION['userdata']['id_users']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +41,7 @@ $user =  new userController;
     <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/themes/krajee-svg/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.1.2/js/locales/LANG.js"></script>
 
+
 </head>
 
 <body>
@@ -49,7 +54,7 @@ $user =  new userController;
                 <li class="nav-link"><a href="books.php">Books</a></li>
                 <?php if (isset($_SESSION['userdata']['is-login'])) : ?>
                     <li class="nav-link cart-btn">
-                        <a href="cart.php"><i class="fa-solid fa-cart-shopping badge" value="9+"></i></a>
+                        <a href="cart.php"><i class="fa-solid fa-cart-shopping badge" value="<?= $item_total['total_item']; ?>+"></i></a>
                     </li>
                 <?php endif ?>
                 <?php if (isset($_SESSION['userdata']['is-login'])) : ?>

@@ -452,4 +452,14 @@ class bookController
       return $row;
     }
   }
+
+  public function check_mybook($id_users, $id_book)
+  {
+    global $conn;
+    $query = "SELECT * FROM mybook WHERE mybook.id_book=$id_book AND mybook.id_users=$id_users";
+    if (!mysqli_query($conn, $query)) {
+      return false;
+    }
+    return mysqli_affected_rows($conn);
+  }
 }
