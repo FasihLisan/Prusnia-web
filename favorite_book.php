@@ -19,7 +19,7 @@ $book = new favoriteController();
 
         <div class="product-info p-3">
           <span class="product-type"><?= $b['author']; ?></span>
-          <a href="#" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
+          <a href="detail_book.php?id=<?= $b['id_book']; ?>" class="d-block text-dark text-decoration-none py-2 product-name"><?= $b['judul']; ?></a>
           <span class="product-price">Rp. <?= number_format($b['harga'], 2) ?></span>
           <div class="mt-1">
             <input id="input-id" type="text" class="rating" data-size="xs" value="<?= $b['rate_book']; ?>" readonly>

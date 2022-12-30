@@ -1,27 +1,24 @@
 $('.owl-carousel').owlCarousel({
 	loop: true,
-	margin: 0,
+	margin: 10,
 	responsiveClass: true,
 	responsive: {
 		0: {
 			items: 1,
+			nav: true,
 		},
-		768: {
-			items: 2,
-		},
-		1100: {
+		600: {
 			items: 3,
+			nav: false,
 		},
-		1400: {
-			items: 4,
+		1500: {
+			items: 5,
+			nav: true,
 			loop: false,
 		},
 	},
 });
-
 // rating
-$('#input-id').rating();
 $('#input-id').rating({
 	size: 'xs',
-	showClear: false,
 });

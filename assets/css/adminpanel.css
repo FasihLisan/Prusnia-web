@@ -29,7 +29,7 @@ a {
 }
 
 .sidebar-section {
-	min-height: 10000%;
+	min-height: 100%;
 	padding: 5px 40px;
 }
 .sidebar-section ul li {

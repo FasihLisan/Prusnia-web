@@ -23,4 +23,19 @@ class transactionController
       return $rows;
     }
   }
+  public function insertDetileTransaction()
+  {
+    global $conn;
+    $transaction_id = $_POST['transaction_id'];
+    $id_users = $_POST['id_users'];
+    $id_book = $_POST['id_book'];
+
+    $query = "insert into detail_transaction (transaction_id,id_users,id_book) VALUES ('$transaction_id','$id_users','$id_book')";
+
+    if (!mysqli_query($conn, $query)) {
+      return false;
+    }
+
+    return mysqli_affected_rows($conn);
+  }
 }

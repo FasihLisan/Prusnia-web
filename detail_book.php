@@ -1,102 +1,109 @@
-<?php require './layout/headerIndex.php'; 
+<?php require './layout/headerIndex.php';
 require_once './controller/bookController.php';
+require_once './controller/feedbackController.php';
 $book = new bookController();
-$bok = $book->tampil();
-if (isset($_GET['id'])){
-$bok=$book->detailBok($_GET['id']);
+$feedback = new feedbackController();
+
+if ($book->getSpesiificBook($_GET['id'])) {
+	$bok = $book->getSpesiificBook($_GET['id']);
 }
-//var_dump($bok); die;
+if ($feedback->getAllRatebook($_GET['id'])) {
+	$feed = $feedback->getAllRatebook($_GET['id']);
+}
+
+// var_dump($feed);
+// die;
 ?>
 
-<section class="about-page">
-    <h2 class="title">Book</h2>
-    <span class="subtitle"> Detail Book</span>
-
-    <div class="container">
-    <div class="card-book">
+<section class="container detile-book">
+	<div class="row">
+		<div class="col col1 book-identity">
+			<ul>
+				<li class="book-title"><?= $bok['judul']; ?></li>
+				<li class="book-author"><?= $bok['author']; ?></li>
+				<li class="book-tgl"><?= date("d M Y", strtotime($bok['publication_date'])) ?></li>
+				<li class="status-book">
+					<ul>
+						<li>
+							<ul class="rating">
+								<li class="title"><?= isset($bok['rate_book']) ? $bok['rate_book'] : "0.0" ?><i class="fa-solid fa-star"></i></li>
+								<li class="subtitle"><?= isset($feed) ? count($feed) : "0"  ?> reviews</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="pages">
+								<li class="title"><?= $bok['halaman']; ?></li>
+								<li class="subtitle">Pages</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="book-button">
+					<ul>
+						<li>
+							<a href="" class="btn btn-buy">IDR. 120,000 Buy</a>
+						</li>
+						<li>
+							<a href="" class="btn btn-cart"><i class="fa-solid fa-cart-shopping"></i></a>
+						</li>
+						<li>
+							<a href="" class="btn btn-favorite"><i class="fa-solid fa-heart"></i></a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="col col2">
 			<div class="book-cover">
-				<div class="book-rate">
-					<i class="fa-solid fa-star"></i>
-					<span>4/5</span>
-				</div>
-                <img src="./assets/images/<?=$bok['cover'] ?>" alt="sampul buku" />
-			</div>
-            <h3 class="book-title"><?=$bok['judul'] ?></h3>
-            <span><?=$bok['author'] ?></span><br><br>
-            <h3 class="price"><?=$bok['harga'] ?></h3>
-		</div>
-
-        <div class="desc-about">
-          <h3>Sinopsis buku:</h3>
-            <?=$bok['description'] ?><br><br>
-            <span>Ditambahkan pada:</span><br>
-            <span><?=$bok['publication_date'] ?></span>
-
-            <div class="container text-center">
-              <div class="row align-items-start">
-                <div class="col">
-                <button class="button-next" name="baca">Baca buku</button>
-                </div>
-              </div>
-              <div class="row align-items-center">
-                <div class="col">
-                <button class="button-cart" class="vertical-align:middle" name="cart"><span>Cart</span></button>
-                </div>
-              </div>
-              <!--<div class="row align-items-end">
-                <div class="col">
-                Data
-                </div>
-              </div>-->
-            </div>
-
-        </div>
-    </div>
-</section>
-<section class="testimoni" id="testimoni">
-	<h2 class="title">Rate Book</h2>
-	<span class="subtitle">Other people's response</span>
-	<div class="container">
-		<div class="card-testimoni">
-			<div class="rate-testimoni"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-			<div class="card-text">Tempatnyua nyaman, koleksi uangnya sangat lengkap dan salah satu musium terlengkap seluruh dunia</div>
-			<div class="card-profile">
-				<div class="profile-image">
-					<img src="./assets/images/p1.png" alt="" />
-				</div>
-				<div class="profile-name">
-					<b>Herlambang</b>
-					<span>Penggemar Uang Kuno</span>
-				</div>
-			</div>
-		</div>
-		<div class="card-testimoni">
-			<div class="rate-testimoni"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-			<div class="card-text">Tempatnyua nyaman, koleksi uangnya sangat lengkap dan salah satu musium terlengkap seluruh dunia</div>
-			<div class="card-profile">
-				<div class="profile-image">
-					<img src="./assets/images/p1.png" alt="" />
-				</div>
-				<div class="profile-name">
-					<b>Herlambang</b>
-					<span>Penggemar Uang Kuno</span>
-				</div>
-			</div>
-		</div>
-		<div class="card-testimoni">
-			<div class="rate-testimoni"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-			<div class="card-text">Tempatnyua nyaman, koleksi uangnya sangat lengkap dan salah satu musium terlengkap seluruh dunia</div>
-			<div class="card-profile">
-				<div class="profile-image">
-					<img src="./assets/images/p1.png" alt="" />
-				</div>
-				<div class="profile-name">
-					<b>Herlambang</b>
-					<span>Penggemar Uang Kuno</span>
-				</div>
+				<img src="./assets/images/<?= $bok['cover']; ?>" alt="">
 			</div>
 		</div>
 	</div>
 </section>
+
+<section class="container desc-book ">
+	<div class="row">
+		<div class="col col1">
+			<p class="section-title">About this book</p>
+			<p><?= $bok['description']; ?></p>
+
+			<p class="section-title">Some feedback</p>
+			<?php if (isset($feed)) : ?>
+				<?php foreach (($feed) as $b) : ?>
+					<div class="feedback">
+						<ul>
+							<li class="rating-profile">
+								<ul>
+									<li class="rating-image">
+										<img src="./assets/images/<?= $b['foto']; ?>" alt="">
+									</li>
+									<li class="rating-name-rt">
+										<ul>
+											<li class="rating-name"><?= $b['nama_lengkap']; ?></li>
+											<li class="rating-rt-tgl">
+												<ul>
+													<li class="rating"> <input id="input-id" type="text" class="rating" data-size="xs" value="<?= $b['rate_score']; ?>" readonly></li>
+													<li class="rating-tgl"><?= date("d/m/Y", strtotime($b['created_at'])) ?></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="feedback"><?= $b['comment']; ?></li>
+						</ul>
+					</div>
+				<?php endforeach ?>
+			<?php else : ?>
+				<span style="color: grey;">Feedback not found</span>
+			<?php endif ?>
+
+
+		</div>
+		<div class="col col2">
+		</div>
+	</div>
+</section>
+
 
 <?php include_once './layout/footerIndex.php' ?>

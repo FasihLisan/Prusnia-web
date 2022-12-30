@@ -5,6 +5,7 @@ require './controller/userController.php';
 $dashboard =  new dashboardController;
 $bookCatalog =  new bookController;
 $user = new userController;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,7 @@ $user = new userController;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Bootstrap % Fontawesome -->
   <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style1.css">
   <link rel="stylesheet" href="./assets/css/adminpanel.css" />
   <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Bootstrap % Fontawesome -->
@@ -35,7 +37,7 @@ $user = new userController;
   <link rel="stylesheet" href="./assets/owl_carousel/owl.carousel.css">
   <link rel="stylesheet" href="./assets/owl_carousel/owl.theme.default.css">
   <!-- custom css -->
-  <link rel="stylesheet" href="./assets/css/style1.css">
+
 
   <!-- rating -->
   <!-- default styles -->
@@ -135,8 +137,8 @@ $user = new userController;
 
         </ul>
       </div>
-      <div class="col content-section">
+      <div class="col-md px-5 content-section ">
 
         <div class="row">
           <div class="content">
-            <div class="container">
+            <div class="container ">
