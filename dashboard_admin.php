@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION["userdata"]["id_level"] != 1) {
+  header('Location:404.php');
+}
 $active = "dasbhaord_admin.php";
 require './layout/headerBookCenter.php';
 require_once './controller/dashboardController.php';
