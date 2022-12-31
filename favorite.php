@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <img src="./assets/images/<?= $f['cover']; ?>" alt="" />
               </div>
-              <h3 class="book-title"><a href="viewPDF.php?file=<?= $f['file_buku'] ?>"> <?= $f['judul'] ?> </a></h3>
+              <h3 class="book-title"> <?= $f['judul'] ?></h3>
               <span><?= $f['author'] ?></span>
               <h3 class="price"> Rp.<?= number_format($f['harga'], 2) ?></h3>
             </div>
