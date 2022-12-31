@@ -1,6 +1,18 @@
-<?php require './layout/headerIndex.php'; 
+<?php
+require './layout/headerIndex.php';
+if ($_SESSION["userdata"]["is-login"] != true) {
+  $_SESSION["failed"] = "Login required";
+  header("Location: signin.php");
+}
 require_once './controller/favoriteController.php';
 $favorit = new favoriteController();
+
+if (isset($_POST['submit'])) {
+  $fav = $favorit->searchFavorite($_POST['keyword'], $_SESSION['userdata']['id_users']);
+} else {
+  $fav = $favorit->getFavorite($_SESSION['userdata']['id_users']);
+}
+
 ?>
 
 <section class="book-page" id="Books">
@@ -16,34 +28,33 @@ $favorit = new favoriteController();
     <span class="subtitle">My Favorite Collection</span>
     <div class="container">
       <div class="search">
-        <form action="#" method="post">
-          <input type="text" name="search" id="search" placeholder="Cari buku" class="search-input" />
-          <i class="fa-solid fa-search"></i>
+        <form action="" method="post">
+          <input type="text" name="keyword" id="search" placeholder="Cari buku" class="search-input" autocomplete="off" />
+          <button type="submit" name="submit" class="fa-solid fa-search"></button>
         </form>
       </div>
 
       <div class="book-content">
-        <?php if ($favorit->getFavorite($_SESSION['userdata'] ['id_users']) != null) :  ?>
-          <?php foreach ($favorit->getFavorite($_SESSION['userdata'] ['id_users']) as $fav) : //var_dump($fav);?>
-        <div class="card-book">
-          <div class="book-cover">
-            <div class="book-rate">
-              <i class="fa-solid fa-star"></i>
-              <span><?=$fav['rate_book'] ?></span>
+        <?php if (isset($fav)) :  ?>
+          <?php foreach ($fav as $f) : //var_dump($fav);
+          ?>
+            <div class="card-book" onclick="return window.location.href='<?= BASE_URL ?>detail_book.php?id=<?= $f['id_book'] ?>'">
+              <div class="book-cover">
+                <div class="book-rate">
+                  <i class="fa-solid fa-star"></i>
+                  <span><?= $f['rate_book'] ? $f['rate_book'] : "0" ?>/5</span>
+                </div>
+                <img src="./assets/images/<?= $f['cover']; ?>" alt="" />
+              </div>
+              <h3 class="book-title"><a href="viewPDF.php?file=<?= $f['file_buku'] ?>"> <?= $f['judul'] ?> </a></h3>
+              <span><?= $f['author'] ?></span>
+              <h3 class="price"> Rp.<?= number_format($f['harga'], 2) ?></h3>
             </div>
-            <a href="viewPDF.php?file=<?=$fav['file_buku'] ?>"> <img src="./assets/images/<?=$fav['cover']; ?>" alt="" /></a>
-            
-          </div>
-          <h3 class="book-title"><a href="viewPDF.php?file=<?=$fav['file_buku'] ?>"> <?=$fav['judul'] ?> </a></h3>
-          <span><?=$fav['author'] ?></span>
-          <h3 class="price"> Rp.<?= number_format ($fav['harga'], 2) ?></h3>
-          <a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
-        </div>
 
-        <?php endforeach ?>
-  <?php else : ?>
-    <h5 class="text-muted">Data kosong</h5>
-  <?php endif ?>
+          <?php endforeach ?>
+        <?php else : ?>
+          <span style="color: grey; margin-left: auto; margin-right: auto; font-size: 20px;">Tidak ada data bernama <b><?= $_POST['keyword']; ?></b></span>
+        <?php endif ?>
 
       </div>
     </div>

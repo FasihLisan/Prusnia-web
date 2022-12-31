@@ -162,7 +162,7 @@ class bookController
     return mysqli_affected_rows($conn);
   }
 
-  function updateBook($id_about)
+  function updateBook($id_book)
   {
     global $conn;
     //next join payment id
@@ -467,5 +467,20 @@ class bookController
       return false;
     }
     return mysqli_affected_rows($conn);
+  }
+
+  public function searchMyBook($keyword, $id_users)
+  {
+    global $conn;
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book JOIN users ON book.id_users=users.id_users JOIN mybook ON mybook.id_book=book.id_book WHERE mybook.id_users=$id_users AND book.judul LIKE '%$keyword%' GROUP BY mybook.id_book ORDER BY mybook.id_book ASC";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+    }
+
+    if (isset($rows)) {
+      return $rows;
+    }
   }
 }

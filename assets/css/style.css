@@ -293,6 +293,7 @@ nav ul .dropdown :hover {
 	overflow: hidden;
 	margin: 0.5rem;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .book-cover {
 	width: fit-content;
@@ -706,8 +707,8 @@ input[type='email']:focus {
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 4rem 0;
-	gap: 20px;
-	justify-content: center;
+	gap: 1px;
+	justify-content: left;
 }
 
 /* ----------------Book page---------------- */

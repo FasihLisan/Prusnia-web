@@ -17,8 +17,8 @@ $('.darkbg').click(function () {
 
 function confirmationHapusData(url) {
 	Swal.fire({
-		title: 'Anda Yakin Untuk Menghapus Buku ini?',
-		text: 'Anda tidak akan melihat buku ini lagi!!!',
+		title: 'Anda Yakin Untuk Menghapus?',
+		text: 'Data ini akan terhapus!!',
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#DD6B55',

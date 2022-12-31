@@ -1,8 +1,4 @@
 <?php
-session_start();
-if ($_SESSION["userdata"]["id_level"] != 1) {
-	header('Location:404.php');
-}
 require './layout/headerIndex.php';
 require_once './controller/AboutController.php';
 require_once './controller/GaleryController.php';

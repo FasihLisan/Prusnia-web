@@ -9,10 +9,6 @@ class favoriteController
     if (!isset($_SESSION)) {
       session_start();
     }
-    if ($_SESSION["userdata"]["is-login"] != true) {
-      $_SESSION["failed"] = "Login required";
-      header("Location: signin.php");
-    }
   }
 
   public function getSpesificFavorite($id_users, $id_book)
@@ -66,5 +62,20 @@ class favoriteController
       return false;
     }
     return mysqli_affected_rows($conn);
+  }
+
+  public function searchFavorite($keyword, $id_users)
+  {
+    global $conn;
+
+    $query = "SELECT users.id_users,users.foto,users.username,CONCAT(users.nama_depan,' ',users.nama_belakang) as publisher_name,users.email,book.*,rate_book.id_rate_book,ROUND(AVG(rate_book.rate_score),1) as rate_book,rate_book.comment FROM book LEFT JOIN rate_book ON book.id_book=rate_book.id_book JOIN users ON book.id_users=users.id_users JOIN favorit ON favorit.id_book=book.id_book WHERE favorit.id_users=$id_users AND book.judul LIKE '%$keyword%' GROUP BY book.id_book ORDER BY book.id_book ASC";
+
+    $res = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($res)) {
+      $rows[] = $row;
+    }
+    if (isset($rows)) {
+      return $rows;
+    }
   }
 }

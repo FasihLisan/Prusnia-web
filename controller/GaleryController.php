@@ -10,8 +10,8 @@ class GaleryController
     global $conn;
     $query = "SELECT * FROM galeri";
     $result = mysqli_query($conn, $query);
-    while($row=mysqli_fetch_assoc($result)){
-        $rows[]=$row;
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
     }
 
     return $rows;
@@ -20,11 +20,10 @@ class GaleryController
   function tampil()
   {
     global $conn;
-    $query = "SELECT * FROM galeri order by id_galeri desc";
+    $query = "SELECT * FROM galeri order by id_galeri ASC";
     $result = mysqli_query($conn, $query);
-    while($row=mysqli_fetch_assoc($result)){
-        $rows[]=$row;
-    
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
     }
 
     return $rows;
@@ -42,12 +41,12 @@ class GaleryController
     $gambar = $rows[0];
 
     if (
-      file_exists("./assets/images/" . $gambar['foto']) 
+      file_exists("./assets/images/" . $gambar['foto'])
     ) {
       unlink("./assets/images/" . $gambar['foto']);
     }
 
-    
+
     $query = "DELETE FROM galeri where id_galeri=" . $id_galeri;
     mysqli_query($conn, $query);
 
@@ -72,7 +71,7 @@ class GaleryController
   }
 
 
-//baru
+  //baru
   function addGaleri()
   {
     global $conn;
@@ -152,5 +151,80 @@ class GaleryController
     }
 
     return mysqli_affected_rows($conn);
+  }
+
+  public function updateGaleri($id_galeri)
+  {
+
+    global $conn;
+    if (isset($_POST["submit"])) {
+      $deskripsi = $_POST["deskripsi"];
+
+      if (!$deskripsi) {
+        $_SESSION["failed"]["deskripsi"] = "deskripsi is required";
+      }
+
+      $query_gambar = "SELECT * from galeri where id_galeri=$id_galeri";
+      $hasil_hambar = mysqli_query($conn, $query_gambar);
+      while ($row = mysqli_fetch_assoc($hasil_hambar)) {
+        $rows[] = $row;
+      }
+      $Currentgambar = $rows[0];
+
+      if ($_FILES['gambar']['name'] != "") {
+
+        $gambar = $_FILES["gambar"];
+
+        $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+        $ekstensiGambar = explode('.', $gambar['name']);
+        $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+        if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+          if ($ekstensiGambar && !in_array($ekstensiGambar, $ekstensiGambarValid)) {
+            $_SESSION["failed"]["gambar"]['extension'] = "gambar exstension not allowed";
+          }
+          return false;
+        }
+
+        $ukuranBookCover = $gambar["size"];
+        if ($ukuranBookCover > 3000000) {
+          $_SESSION["failed"]["gambar"]['size'] = "gambar > 3 Mb";
+          return false;
+        }
+
+        $filename = [
+          "GambarFilename" => uniqid() . "." . $ekstensiGambar
+        ];
+        unlink("./assets/images/" . $Currentgambar["foto"]);
+        move_uploaded_file($gambar['tmp_name'], './assets/images/' . $filename["GambarFilename"]);
+
+        $gambarFilename = $filename['GambarFilename'];
+
+        $query = "UPDATE galeri SET foto='$gambarFilename' where id_galeri='$id_galeri'";
+
+        mysqli_query($conn, $query);
+      } else {
+        $query = "UPDATE galeri SET deskripsi='$deskripsi' where id_galeri='$id_galeri'";
+        mysqli_query($conn, $query);
+      }
+
+      if (mysqli_error($conn)) {
+        echo mysqli_error($conn);
+        return false;
+      }
+
+      return mysqli_affected_rows($conn);
+    }
+  }
+
+  public function getGaleriById($id_galeri)
+  {
+    global $conn;
+    $query = "SELECT * from galeri where id_galeri=$id_galeri";
+    $result = mysqli_query($conn, $query);
+    $res = mysqli_fetch_assoc($result);
+    if (isset($res)) {
+      return $res;
+    }
   }
 }

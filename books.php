@@ -1,15 +1,14 @@
 <?php require './layout/headerIndex.php';
 require_once './controller/ContactController.php';
 require_once './controller/bookController.php';
-require_once './controller/bookController.php';
 $contact = new ContactController();
 $data2 = $contact->index();
 $book = new bookController();
-	
+
 
 if (isset($_POST["submit"])) {
 	$bok = $book->cari($_POST['search']);
-}else{
+} else {
 	$bok = $book->getAllbook();
 }
 ?>
@@ -32,30 +31,24 @@ if (isset($_POST["submit"])) {
 					<button type="submit" name="submit" class="fa-solid fa-search"></button>
 				</form>
 			</div>
-
-			<div class="category-book-page">
-				<ul>
-					<li><a href="#">Free</a></li>
-					<li><a href="#">Paid</a></li>
-				</ul>
-			</div>
 			<div class="book-content">
-
-				<?php foreach ($bok as $b) : ?>
-					<div class="card-book">
-						<div class="book-cover">
-							<div class="book-rate">
-								<i class="fa-solid fa-star"></i>
-								<span><?= $b['rate_book'] ? $b['rate_book'] : "0" ?>/5</span>
-							</div><a href="detail_book.php?id=<?= $b['id_book'] ?>"><img src="./assets/images/<?= $b['cover'] ?>" alt="cover_buku" /></a>
+				<?php if (isset($bok)) : ?>
+					<?php foreach ($bok as $b) : ?>
+						<div class="card-book" onclick="return window.location.href='<?= BASE_URL ?>detail_book.php?id=<?= $b['id_book'] ?>'">
+							<div class="book-cover">
+								<div class="book-rate">
+									<i class="fa-solid fa-star"></i>
+									<span><?= $b['rate_book'] ? $b['rate_book'] : "0" ?>/5</span>
+								</div><img src="./assets/images/<?= $b['cover'] ?>" alt="cover_buku" />
+							</div>
+							<h3 class="book-title"><a href="detail_book.php?id=<?= $b['id_book'] ?>"><?= $b['judul'] ?></a></h3>
+							<span><?= $b['author'] ?></span>
+							<h3 class="price">Rp. <?= number_format($b['harga'], 2) ?></h3>
 						</div>
-						<h3 class="book-title"><a href="detail_book.php?id=<?= $b['id_book'] ?>"><?= $b['judul'] ?></a></h3>
-						<span><?= $b['author'] ?></span>
-						<h3 class="price">Rp. <?= number_format($b['harga'], 2) ?></h3>
-						<a href="" class="btn"><span class="fa-solid fa-shopping-cart"></span> Add to cart</a>
-					</div>
-				<?php endforeach; ?>
-
+					<?php endforeach; ?>
+				<?php else : ?>
+					<span style="color: grey; margin-left: auto; margin-right: auto; font-size: 20px;">Tidak ada data bernama <b><?= $_POST['search']; ?></b></span>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>
