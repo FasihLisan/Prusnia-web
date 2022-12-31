@@ -4,13 +4,13 @@ require_once './layout/headerBookCenter.php';
 
 require_once './controller/bookController.php';
 $book = new bookController();
-
+$topRatedBook = $book->getTopRateBook();
 ?>
 
 <h4 class="my-4">Top rated book</h4>
 <div class="owl-carousel">
-  <?php if ($book->getTopRateBook() != null) :  ?>
-    <?php foreach ($book->getTopRateBook() as $b) : ?>
+  <?php if (isset($topRatedBook)) :  ?>
+    <?php foreach ($topRatedBook as $b) : ?>
       <div class="product-item">
         <div class="product-img">
           <img src="./assets/images/<?= $b['cover']; ?>" alt="" class="img-fluid d-block mx-auto">

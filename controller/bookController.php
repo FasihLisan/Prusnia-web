@@ -394,10 +394,8 @@ class bookController
       $rows[] = $row;
     }
 
-    if ($rows) {
+    if (isset($rows)) {
       return $rows;
-    } else {
-      return "data kosong";
     }
   }
 
@@ -423,10 +421,8 @@ class bookController
       $rows[] = $row;
     }
 
-    if ($rows) {
+    if (isset($rows)) {
       return $rows;
-    } else {
-      return "data kosong";
     }
   }
 

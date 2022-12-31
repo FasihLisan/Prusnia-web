@@ -4,6 +4,10 @@ require './layout/headerBookCenter.php';
 
 require_once './controller/transactionController.php';
 $tran = new transactionController();
+
+if (isset($_SESSION['userdata']['id_users'])) {
+  $trans = $tran->getUserTransaction($_SESSION['userdata']['id_users']);
+}
 ?>
 
 <h4 class="my-4">My order history</h4>
@@ -21,24 +25,26 @@ $tran = new transactionController();
       </tr>
     </thead>
     <tbody>
-
-      <?php $no = 1;
-      foreach ($tran->getUserTransaction($_SESSION['userdata']['id_users']) as $t) : ?>
-        <tr>
-          <td><?= $no++; ?></td>
-          <td><?= $t['order_id']; ?></td>
-          <td><?= $t['payment_type']; ?></td>
-          <td>Rp. <?= number_format($t['gross_amount'], 2) ?></td>
-          <?php if ($t['transaction_status'] == "settlement") : ?>
-            <td><span class="bg-success text-white rounded-pill p-1">Success</span></td>
-          <?php else : ?>
-            <td><span class="bg-secondary text-white rounded-pill p-1"><?= $t['transaction_status'] ?></span></td>
-          <?php endif ?>
-          <td>
-            <a href="#" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
-          </td>
-        </tr>
-      <?php endforeach ?>
+      <?php if (isset($trans)) : ?>
+        <?php $no = 1;
+        foreach ($trans as $t) : ?>
+          <tr>
+            <td><?= $no++; ?></td>
+            <td><?= $t['order_id']; ?></td>
+            <td><?= $t['payment_type']; ?></td>
+            <td>Rp. <?= number_format($t['gross_amount'], 2) ?></td>
+            <?php if ($t['transaction_status'] == "settlement") : ?>
+              <td><span class="bg-success text-white rounded-pill p-1">Success</span></td>
+            <?php else : ?>
+              <td><span class="bg-secondary text-white rounded-pill p-1"><?= $t['transaction_status'] ?></span></td>
+            <?php endif ?>
+            <td>
+              <a href="#" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
+            </td>
+          </tr>
+        <?php endforeach ?>
+      <?php else : ?>
+      <?php endif ?>
 
     </tbody>
   </table>
