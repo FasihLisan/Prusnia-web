@@ -2,6 +2,7 @@
 require_once './layout/headerIndex.php';
 require_once './controller/cartController.php';
 require_once './controller/userController.php';
+require_once './assets/midtrans-php-master/Midtrans.php';
 $cart = new cartController();
 
 if ($_SESSION["userdata"]["is-login"] != true) {
@@ -9,7 +10,7 @@ if ($_SESSION["userdata"]["is-login"] != true) {
     header("Location: signin.php");
 }
 
-require_once dirname(__FILE__) . './assets/midtrans-php-master/Midtrans.php';
+
 
 
 // Set your Merchant Server Key

@@ -5,6 +5,8 @@ require_once './controller/bookController.php';
 require_once './controller/feedbackController.php';
 require_once './controller/favoriteController.php';
 require_once './controller/cartController.php';
+require_once './assets/midtrans-php-master/Midtrans.php';
+
 $book = new bookController();
 $feedback = new feedbackController();
 $favorite = new favoriteController();
@@ -43,7 +45,6 @@ if (isset($_SESSION['userdata']['id_users'])) {
 
 
 
-	require_once dirname(__FILE__) . './assets/midtrans-php-master/Midtrans.php';
 
 	// Set your Merchant Server Key
 	\Midtrans\Config::$serverKey = 'SB-Mid-server-rNXSy1soppSKk2C96hFzfjjg';
