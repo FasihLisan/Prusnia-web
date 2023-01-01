@@ -39,7 +39,7 @@ if (isset($_SESSION['userdata']['id_users'])) {
               <td><span class="bg-secondary text-white rounded-pill p-1"><?= $t['transaction_status'] ?></span></td>
             <?php endif ?>
             <td>
-              <a href="#" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
+              <a href="detile_order.php?transaction_id=<?= $t['transaction_id']; ?>&va_number=<?= $t['va_number']; ?>&bank=<?= $t['bank']; ?>" class="btn btn-light "><i class="fa-solid fa-eye"></i></a>
             </td>
           </tr>
         <?php endforeach ?>

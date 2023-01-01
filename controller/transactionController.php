@@ -38,4 +38,16 @@ class transactionController
 
     return mysqli_affected_rows($conn);
   }
+  public function getDetileUserTransaction($transaction_id)
+  {
+    global $conn;
+    $query = "SELECT * FROM detail_transaction JOIN transaction ON detail_transaction.transaction_id=transaction.transaction_id JOIN users ON detail_transaction.id_users = users.id_users JOIN book ON detail_transaction.id_book=book.id_book WHERE detail_transaction.transaction_id='$transaction_id'";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+    }
+    if (isset($rows)) {
+      return $rows;
+    }
+  }
 }
