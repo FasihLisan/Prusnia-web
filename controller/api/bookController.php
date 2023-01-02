@@ -82,6 +82,7 @@ class bookController
     ];
     return json_encode($response);
   }
+
   public function check_mybook($id_users, $id_book)
   {
     global $conn;
@@ -176,6 +177,25 @@ class bookController
       $response = [
         "status" => 400,
         "message" => "Failed",
+      ];
+      echo json_encode($response);
+    }
+  }
+
+  public function insertMyBook($transaction_id)
+  {
+    global $conn;
+    $query1 = "INSERT INTO mybook(id_book,id_users) SELECT detail_transaction.id_book, detail_transaction.id_users FROM detail_transaction WHERE detail_transaction.transaction_id='$transaction_id'";
+    if (mysqli_query($conn, $query1)) {
+      $response = [
+        "status" => 200,
+        "message" => "Success"
+      ];
+      echo json_encode($response);
+    } else {
+      $response = [
+        "status" => 401,
+        "message" => "Failed"
       ];
       echo json_encode($response);
     }

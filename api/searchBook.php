@@ -1,5 +1,5 @@
 <?php
-require_once('../controller/api/bookController.php');
+require_once '../controller/api/bookController.php';
 $book = new bookController();
 
 if (isset($_GET['keyword'])) {

@@ -1,12 +1,13 @@
 <?php
 require_once './root/base_url.php';
-require './controller/userController.php';
+require_once './controller/userController.php';
 require_once './controller/ContactController.php';
 require_once './controller/cartController.php';
 $cart_root = new cartController();
 $contact = new ContactController();
-$data2 = $contact->index();
 $user =  new userController;
+
+$data2 = $contact->index();
 
 if (isset($_SESSION['userdata']['id_users'])) {
     $item_total = $cart_root->getItemPriceTotal($_SESSION['userdata']['id_users']);

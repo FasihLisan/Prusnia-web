@@ -357,7 +357,6 @@ if (isset($_SESSION['userdata']['id_users'])) {
 		window.snap.pay('<?= $snapToken; ?>', {
 			onSuccess: function(result) {
 
-
 				$.post("<?= BASE_URL ?>api/insertDetaileTransaction.php?api_key=fasih123", {
 					transaction_id: result.transaction_id,
 					id_users: <?= $_SESSION['userdata']['id_users'] ?>,
@@ -370,6 +369,9 @@ if (isset($_SESSION['userdata']['id_users'])) {
 					id_book: <?= $bok['id_book']; ?>
 				});
 
+				$.get("<?= BASE_URL ?>api/insertMyBook.php?api_key=fasih123", {
+					transaction_id: result.transaction_id,
+				});
 
 				alert("payment success!");
 				location.reload();

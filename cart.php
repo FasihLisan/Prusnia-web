@@ -158,7 +158,16 @@ if (isset($detile_item)) {
                     $.get("<?= BASE_URL ?>api/deleteAllCartUsers.php?api_key=fasih123", {
                         id_users: <?= $_SESSION['userdata']['id_users'] ?>,
                     });
+
+
+                    $.get("<?= BASE_URL ?>api/insertMyBook.php?api_key=fasih123", {
+                        transaction_id: result.transaction_id,
+                    });
+
                 <?php endif ?>
+
+
+
 
                 alert("payment success!");
                 location.reload();
