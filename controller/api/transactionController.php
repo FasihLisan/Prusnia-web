@@ -165,15 +165,16 @@ class transactionController
     }
 
 
+
     //insert transaction and payment_amount and va_numbers
     $query = "START TRANSACTION; INSERT INTO transaction (transaction_time,transaction_status,transaction_id,status_message,status_code,signature_key,settlement_time,payment_type,order_id,merchant_id,gross_amount,fraud_status,currency,biller_code,bill_key,approval_code) VALUES ('$transaction_time','$transaction_status','$transaction_id','$status_message','$status_code','$signature_key','$settlement_time','$payment_type','$order_id','$merchant_id','$gross_amount','$fraud_status','$currency','$biller_code','$bill_key','$approval_code'); INSERT INTO va_numbers (va_number,bank,id_transaction) VALUES ('$va_number','$bank',@id_transaction:= LAST_INSERT_ID()); INSERT INTO payment_amount (amount,paid_at,id_transaction) VALUES ('$amount','$paid_at',@id_transaction); COMMIT;";
 
 
     if (mysqli_multi_query($conn, $query)) {
-      // if ($transaction_status == "settlement") {
-      //   $query1 = "INSERT INTO mybook(id_book,id_users) SELECT detail_transaction.id_book, detail_transaction.id_users FROM detail_transaction WHERE detail_transaction.transaction_id='$transaction_id'";
-      //   mysqli_query($conn, $query1);
-      // }
+      if ($transaction_status == "settlement") {
+        $query1 = "INSERT INTO mybook(id_book,id_users) SELECT detail_transaction.id_book, detail_transaction.id_users FROM detail_transaction WHERE detail_transaction.transaction_id='$transaction_id'";
+        mysqli_query($conn, $query1);
+      }
       $response = [
         "status" => 200,
         "message" => "created "

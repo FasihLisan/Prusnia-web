@@ -146,25 +146,25 @@ if (isset($detile_item)) {
         // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
         window.snap.pay('<?= $snapToken; ?>', {
             onSuccess: function(result) {
-                <?php if (isset($detile_item)) : ?>
-                    <?php for ($i = 0; $i < count($detile_item); $i++) : ?>
-                        $.post("<?= BASE_URL ?>api/insertDetaileTransaction.php?api_key=fasih123", {
-                            transaction_id: result.transaction_id,
-                            id_users: <?= $_SESSION['userdata']['id_users'] ?>,
-                            id_book: <?= $detile_item[$i]['id_book']; ?>
-                        });
-                    <?php endfor ?>
 
-                    $.get("<?= BASE_URL ?>api/deleteAllCartUsers.php?api_key=fasih123", {
-                        id_users: <?= $_SESSION['userdata']['id_users'] ?>,
-                    });
-
-
-                    $.get("<?= BASE_URL ?>api/insertMyBook.php?api_key=fasih123", {
+                <?php for ($i = 0; $i < count($detile_item); $i++) : ?>
+                    $.post("<?= BASE_URL ?>api/insertDetaileTransaction.php?api_key=fasih123", {
                         transaction_id: result.transaction_id,
+                        id_users: <?= $_SESSION['userdata']['id_users'] ?>,
+                        id_book: <?= $detile_item[$i]['id_book']; ?>
                     });
+                <?php endfor ?>
 
-                <?php endif ?>
+                $.get("<?= BASE_URL ?>api/deleteAllCartUsers.php?api_key=fasih123", {
+                    id_users: <?= $_SESSION['userdata']['id_users'] ?>,
+                });
+
+
+                $.get("<?= BASE_URL ?>api/insertMyBook.php?api_key=fasih123", {
+                    transaction_id: result.transaction_id,
+                });
+
+
 
 
 

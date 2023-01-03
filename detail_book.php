@@ -371,6 +371,8 @@ if (isset($_SESSION['userdata']['id_users'])) {
 
 				$.get("<?= BASE_URL ?>api/insertMyBook.php?api_key=fasih123", {
 					transaction_id: result.transaction_id,
+				}).fail(function() {
+					alert("tidak tersimpan di my book");
 				});
 
 				alert("payment success!");
