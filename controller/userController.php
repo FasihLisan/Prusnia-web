@@ -89,12 +89,15 @@ class userController
   function update($id_user)
   {
 
+
+
     global $conn;
     $filename = $username = $email = $password = $email = $password = $nama_depan = $nama_belakang = $tgl_lahir = $jenis_kelamin = $no_telp = $alamat = $negara = $kota = "";
     $err = [];
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
       if (isset($_POST['username'])) {
         $username = validation($_POST['username']);
       }
@@ -132,9 +135,12 @@ class userController
       return false;
     }
 
+
+
     if (!$username || !$email || !$password || !$email || !$password || !$nama_depan || !$nama_belakang || !$jenis_kelamin || !$negara || !$kota) {
       return false;
     }
+
 
     //send spesific error message
     // if ($err) {
@@ -154,7 +160,7 @@ class userController
 
 
     //upload file
-    if (isset($_FILES['foto'])) {
+    if ($_FILES['foto']['name'] != "") {
 
       $foto = $_FILES['foto'];
       $ekstensiValid = ['jpg', 'jpeg', 'png'];
@@ -179,17 +185,20 @@ class userController
       $result = mysqli_query($conn, $query);
       $result = mysqli_fetch_assoc($result);
       if ($result['foto'] != "" || $result['foto'] != null) {
-        unlink('./assets/images/' . $result['foto']);
+        unlink('../assets/images/' . $result['foto']);
       }
 
-      if (!move_uploaded_file($foto['tmp_name'], './assets/images/' . $filename)) {
+      if (!move_uploaded_file($foto['tmp_name'], '../assets/images/' . $filename)) {
         return false;
       }
+      $query = "UPDATE users SET foto='$filename'WHERE id_users=$id_user";
+      mysqli_query($conn, $query);
     }
 
 
 
-    $query = "UPDATE users SET foto='$filename',username='$username',email='$email',password='$password',nama_depan='$nama_depan',nama_belakang='$nama_belakang',tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',no_telp='$no_telp',alamat='$alamat',negara='$negara',kota='$kota' WHERE id_users=$id_user";
+
+    $query = "UPDATE users SET username='$username',email='$email',password='$password',nama_depan='$nama_depan',nama_belakang='$nama_belakang',tgl_lahir='$tgl_lahir',jenis_kelamin='$jenis_kelamin',no_telp='$no_telp',alamat='$alamat',negara='$negara',kota='$kota' WHERE id_users=$id_user";
     mysqli_query($conn, $query);
 
 
